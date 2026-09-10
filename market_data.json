@@ -1,7 +1,7 @@
 {
-  "updated_at": "2026-09-10 08:24:05",
+  "updated_at": "2026-09-10 08:32:52",
   "total_watchlist": 37,
-  "total_found": 36,
+  "total_found": 37,
   "stocks": [
     {
       "name": "元大台灣50",
@@ -283,6 +283,15 @@
       "change_percent": -3.98
     },
     {
+      "name": "群翊",
+      "code": "6664",
+      "market": "TPEx",
+      "type": "stock",
+      "closing_price": "346.50",
+      "change": "-7.00 ",
+      "change_percent": -1.98
+    },
+    {
       "name": "鈺太",
       "code": "6679",
       "market": "TPEx",
@@ -328,11 +337,5 @@
       "change_percent": -0.46
     }
   ],
-  "missing": [
-    {
-      "name": "群翊",
-      "code": "6664",
-      "market": "TWSE"
-    }
-  ]
+  "missing": []
 }
