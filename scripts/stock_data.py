@@ -2,6 +2,7 @@ import json
 import urllib.request
 import urllib.error
 from datetime import datetime
+from zoneinfo import ZoneInfo
 
 TWSE_URL = "https://openapi.twse.com.tw/v1/exchangeReport/STOCK_DAY_ALL"
 TPEX_URL = "https://www.tpex.org.tw/openapi/v1/tpex_mainboard_daily_close_quotes"
@@ -333,10 +334,12 @@ def main():
 
     output = {
 
-        "updated_at": (
-            datetime.now()
-            .strftime("%Y-%m-%d %H:%M:%S")
-        ),
+     "updated_at": (
+    datetime.now(
+        ZoneInfo("Asia/Taipei")
+    )
+    .strftime("%Y-%m-%d %H:%M:%S")
+),
 
         "total_watchlist":
             len(stocks),
