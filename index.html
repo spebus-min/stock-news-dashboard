@@ -31,12 +31,15 @@
       margin-bottom: 8px;
     }
 
-    .count {
-      color: #888;
-      font-size: 14px;
-      margin-bottom: 30px;
-    }
+ .count {
+  color: #888;
+  font-size: 14px;
+  margin-bottom: 6px;
+}
 
+#updateTime {
+  margin-bottom: 30px;
+}
     .stock-card {
       background: white;
       padding: 24px;
@@ -87,9 +90,13 @@
     自選股每日重點新聞與AI摘要
   </div>
 
-  <div id="stockCount" class="count">
-    股票清單載入中……
-  </div>
+<div id="stockCount" class="count">
+  股票清單載入中……
+</div>
+
+<div id="updateTime" class="count">
+  資料更新時間載入中……
+</div>
 
   <div id="stockList">
     <div class="loading">
@@ -105,6 +112,7 @@ async function loadData() {
 
   const stockList = document.getElementById("stockList");
   const stockCount = document.getElementById("stockCount");
+  const updateTime = document.getElementById("updateTime");
 
   try {
 
@@ -136,7 +144,24 @@ async function loadData() {
   : "未知";
 
 stockCount.textContent =
-  `目前追蹤${stocks.length}檔標的｜最後更新：${updatedAt}`;
+  `目前追蹤${stocks.length}檔標的`;
+
+if (marketData.updated_at) {
+
+  const formattedTime =
+    marketData.updated_at
+      .replaceAll("-", "／")
+      .replace(" ", "　");
+
+  updateTime.textContent =
+    `🕒資料最後更新：${formattedTime}（台灣時間）`;
+
+} else {
+
+  updateTime.textContent =
+    "🕒資料最後更新時間：未知";
+
+}
 
     stockList.innerHTML = "";
 
