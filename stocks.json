@@ -1,0 +1,224 @@
+[
+  {
+    "name": "信邦",
+    "code": "3023",
+    "market": "TWSE",
+    "type": "stock"
+  },
+  {
+    "name": "台灣光罩",
+    "code": "2338",
+    "market": "TWSE",
+    "type": "stock"
+  },
+  {
+    "name": "祥碩",
+    "code": "5269",
+    "market": "TWSE",
+    "type": "stock"
+  },
+  {
+    "name": "研華",
+    "code": "2395",
+    "market": "TWSE",
+    "type": "stock"
+  },
+  {
+    "name": "文曄",
+    "code": "3036",
+    "market": "TWSE",
+    "type": "stock"
+  },
+  {
+    "name": "光寶科",
+    "code": "2301",
+    "market": "TWSE",
+    "type": "stock"
+  },
+  {
+    "name": "鈺太",
+    "code": "6679",
+    "market": "TPEx",
+    "type": "stock"
+  },
+  {
+    "name": "群聯",
+    "code": "8299",
+    "market": "TPEx",
+    "type": "stock"
+  },
+  {
+    "name": "富邦台50",
+    "code": "006208",
+    "market": "TWSE",
+    "type": "etf"
+  },
+  {
+    "name": "聯發科",
+    "code": "2454",
+    "market": "TWSE",
+    "type": "stock"
+  },
+  {
+    "name": "鑽石投資",
+    "code": "6901",
+    "market": "TWSE",
+    "type": "stock"
+  },
+  {
+    "name": "和碩",
+    "code": "4938",
+    "market": "TWSE",
+    "type": "stock"
+  },
+  {
+    "name": "台達電",
+    "code": "2308",
+    "market": "TWSE",
+    "type": "stock"
+  },
+  {
+    "name": "寶雅",
+    "code": "5904",
+    "market": "TPEx",
+    "type": "stock"
+  },
+  {
+    "name": "力積電",
+    "code": "6770",
+    "market": "TWSE",
+    "type": "stock"
+  },
+  {
+    "name": "群創",
+    "code": "3481",
+    "market": "TWSE",
+    "type": "stock"
+  },
+  {
+    "name": "台積電",
+    "code": "2330",
+    "market": "TWSE",
+    "type": "stock"
+  },
+  {
+    "name": "元大台灣50",
+    "code": "0050",
+    "market": "TWSE",
+    "type": "etf"
+  },
+  {
+    "name": "廣達",
+    "code": "2382",
+    "market": "TWSE",
+    "type": "stock"
+  },
+  {
+    "name": "義隆",
+    "code": "2458",
+    "market": "TWSE",
+    "type": "stock"
+  },
+  {
+    "name": "緯創",
+    "code": "3231",
+    "market": "TWSE",
+    "type": "stock"
+  },
+  {
+    "name": "台泥",
+    "code": "1101",
+    "market": "TWSE",
+    "type": "stock"
+  },
+  {
+    "name": "大江",
+    "code": "8436",
+    "market": "TPEx",
+    "type": "stock"
+  },
+  {
+    "name": "家登",
+    "code": "3680",
+    "market": "TPEx",
+    "type": "stock"
+  },
+  {
+    "name": "鈦昇",
+    "code": "8027",
+    "market": "TPEx",
+    "type": "stock"
+  },
+  {
+    "name": "致茂",
+    "code": "2360",
+    "market": "TWSE",
+    "type": "stock"
+  },
+  {
+    "name": "中華食",
+    "code": "4205",
+    "market": "TPEx",
+    "type": "stock"
+  },
+  {
+    "name": "卜蜂",
+    "code": "1215",
+    "market": "TWSE",
+    "type": "stock"
+  },
+  {
+    "name": "翔名",
+    "code": "8091",
+    "market": "TPEx",
+    "type": "stock"
+  },
+  {
+    "name": "群翊",
+    "code": "6664",
+    "market": "TWSE",
+    "type": "stock"
+  },
+  {
+    "name": "鴻海",
+    "code": "2317",
+    "market": "TWSE",
+    "type": "stock"
+  },
+  {
+    "name": "臻鼎-KY",
+    "code": "4958",
+    "market": "TWSE",
+    "type": "stock"
+  },
+  {
+    "name": "京元電子",
+    "code": "2449",
+    "market": "TWSE",
+    "type": "stock"
+  },
+  {
+    "name": "星宇航空",
+    "code": "2646",
+    "market": "TWSE",
+    "type": "stock"
+  },
+  {
+    "name": "中美晶",
+    "code": "5483",
+    "market": "TPEx",
+    "type": "stock"
+  },
+  {
+    "name": "環球晶",
+    "code": "6488",
+    "market": "TPEx",
+    "type": "stock"
+  },
+  {
+    "name": "陽明",
+    "code": "2609",
+    "market": "TWSE",
+    "type": "stock"
+  }
+]
