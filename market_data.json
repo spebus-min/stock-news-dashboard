@@ -1,0 +1,16 @@
+{
+  "stocks": [
+    {
+      "name": "元大台灣50",
+      "code": "0050",
+      "closing_price": "109.65",
+      "change": "0.0000"
+    },
+    {
+      "name": "台積電",
+      "code": "2330",
+      "closing_price": "2465.00",
+      "change": "-5.0000"
+    }
+  ]
+}
