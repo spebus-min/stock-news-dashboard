@@ -130,8 +130,13 @@ async function loadData() {
       marketMap[item.code] = item;
     });
 
-    stockCount.textContent =
-      `目前追蹤${stocks.length}檔標的`;
+    const updatedAt =
+  marketData.updated_at
+  ? marketData.updated_at
+  : "未知";
+
+stockCount.textContent =
+  `目前追蹤${stocks.length}檔標的｜最後更新：${updatedAt}`;
 
     stockList.innerHTML = "";
 
@@ -149,14 +154,48 @@ async function loadData() {
 
       const market = marketMap[stock.code];
 
-      let priceText = "";
+let priceText = "";
 
-      if (market) {
+if (market) {
 
-        priceText =
-          `最新收盤價：${market.closing_price}元；漲跌：${market.change}`;
+  const price = Number(market.closing_price);
 
-      } else {
+  const formattedPrice =
+    Number.isNaN(price)
+    ? market.closing_price
+    : price.toLocaleString(
+        "zh-TW",
+        {
+          minimumFractionDigits: 2,
+          maximumFractionDigits: 2
+        }
+      );
+
+  let changePercentText = "資料不足";
+
+  if (
+    market.change_percent !== null &&
+    market.change_percent !== undefined
+  ) {
+
+    const percent =
+      Number(market.change_percent);
+
+    const sign =
+      percent > 0
+      ? "＋"
+      : percent < 0
+      ? "－"
+      : "";
+
+    changePercentText =
+      `${sign}${Math.abs(percent).toFixed(2)}％`;
+  }
+
+  priceText =
+    `最新收盤價：${formattedPrice}元；漲跌幅：${changePercentText}。`;
+
+} else {
 
         priceText =
           stock.type === "etf"
