@@ -1,93 +1,342 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
+
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
   <title>我的台股情報站</title>
 
   <style>
+
     body {
-      font-family: Arial, "Microsoft JhengHei", sans-serif;
+      font-family:
+        Arial,
+        "Microsoft JhengHei",
+        sans-serif;
+
       background: #f5f7fa;
+
       margin: 0;
+
       padding: 40px 20px;
+
       color: #333;
     }
 
+
     .container {
+
       max-width: 900px;
+
       margin: auto;
     }
 
+
     h1 {
+
       color: #1f4e79;
+
+      margin-bottom: 8px;
     }
 
+
     .subtitle {
+
       color: #666;
+
+      margin-bottom: 8px;
+    }
+
+
+    .count {
+
+      color: #888;
+
+      font-size: 14px;
+
       margin-bottom: 30px;
     }
 
+
     .stock-card {
+
       background: white;
+
       padding: 24px;
+
       margin-bottom: 20px;
+
       border-radius: 12px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+
+      box-shadow:
+        0 2px 8px
+        rgba(0,0,0,0.08);
     }
 
+
     .stock-name {
+
       font-size: 22px;
+
       font-weight: bold;
+
       margin-bottom: 18px;
     }
 
-    .section {
-      margin-top: 14px;
-      line-height: 1.7;
+
+    .stock-info {
+
+      font-size: 13px;
+
+      color: #888;
+
+      margin-bottom: 16px;
     }
 
-    .news-link {
-      color: #1565c0;
+
+    .section {
+
+      margin-top: 14px;
+
+      line-height: 1.8;
     }
+
+
+    .loading {
+
+      padding: 30px;
+
+      text-align: center;
+
+      color: #666;
+    }
+
+
+    .error {
+
+      padding: 20px;
+
+      background: #fff3f3;
+
+      border-radius: 10px;
+
+      color: #a33;
+    }
+
   </style>
+
 </head>
+
 
 <body>
 
 <div class="container">
 
-  <h1>📈我的台股情報站</h1>
+
+  <h1>
+    📈我的台股情報站
+  </h1>
+
 
   <div class="subtitle">
     自選股每日重點新聞與AI摘要
   </div>
 
-  <div class="stock-card">
 
-    <div class="stock-name">
-      台積電（2330）
-    </div>
+  <div
+    id="stockCount"
+    class="count"
+  >
+    股票清單載入中……
+  </div>
 
-    <div class="section">
-      📊<strong>最新營收／股價動態：</strong><br>
-      股票資料功能建置中。
-    </div>
 
-    <div class="section">
-      🚀<strong>營運與重大發展：</strong><br>
-      AI新聞摘要功能建置中。
-    </div>
+  <div id="stockList">
 
-    <div class="section">
-      🔗<strong>新聞原文連結：</strong><br>
-      新聞搜尋功能建置中。
+    <div class="loading">
+
+      自選股資料載入中……
+
     </div>
 
   </div>
 
+
 </div>
 
+
+<script>
+
+async function loadStocks() {
+
+  const stockList =
+    document.getElementById("stockList");
+
+
+  const stockCount =
+    document.getElementById("stockCount");
+
+
+  try {
+
+    const response =
+      await fetch("stocks.json");
+
+
+    if (!response.ok) {
+
+      throw new Error(
+        "無法讀取stocks.json"
+      );
+
+    }
+
+
+    const stocks =
+      await response.json();
+
+
+    stockCount.textContent =
+      `目前追蹤${stocks.length}檔標的`;
+
+
+    stockList.innerHTML = "";
+
+
+    stocks.forEach(stock => {
+
+
+      const marketText =
+
+        stock.market === "TWSE"
+
+        ? "上市"
+
+        : "上櫃";
+
+
+      const typeText =
+
+        stock.type === "etf"
+
+        ? "ETF"
+
+        : "個股";
+
+
+      const card =
+        document.createElement("div");
+
+
+      card.className =
+        "stock-card";
+
+
+      card.innerHTML = `
+
+        <div class="stock-name">
+
+          ${stock.name}（${stock.code}）
+
+        </div>
+
+
+        <div class="stock-info">
+
+          ${marketText}｜${typeText}
+
+        </div>
+
+
+        <div class="section">
+
+          📊<strong>
+          最新營收／股價動態：
+          </strong>
+
+          <br>
+
+          ${
+            stock.type === "etf"
+
+            ? "最新股價資料功能建置中。"
+
+            : "最新股價與營收資料功能建置中。"
+          }
+
+        </div>
+
+
+        <div class="section">
+
+          🚀<strong>
+          營運與重大發展：
+          </strong>
+
+          <br>
+
+          AI新聞摘要功能建置中。
+
+        </div>
+
+
+        <div class="section">
+
+          🔗<strong>
+          新聞原文連結：
+          </strong>
+
+          <br>
+
+          新聞搜尋功能建置中。
+
+        </div>
+
+      `;
+
+
+      stockList.appendChild(card);
+
+    });
+
+
+  } catch(error) {
+
+
+    console.error(error);
+
+
+    stockCount.textContent =
+      "資料載入失敗";
+
+
+    stockList.innerHTML = `
+
+      <div class="error">
+
+        無法讀取自選股資料。
+
+        請確認stocks.json是否存在。
+
+      </div>
+
+    `;
+
+  }
+
+}
+
+
+loadStocks();
+
+</script>
+
+
 </body>
+
 </html>
