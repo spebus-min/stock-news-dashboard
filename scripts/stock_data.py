@@ -394,6 +394,10 @@ def main():
         f"{len(tpex_data)}筆資料"
     )
 
+print("取得月營收資料……")
+revenue_data=fetch_json(REVENUE_URL)
+print(f"營收API共回傳{len(revenue_data)}筆資料")
+    
     results = []
 
     results.extend(
@@ -409,6 +413,17 @@ def main():
             stock_lookup
         )
     )
+
+revenue_map=process_revenue(
+    revenue_data,
+    stock_lookup
+)
+
+for item in results:
+    code=item["code"]
+
+    if code in revenue_map:
+        item.update(revenue_map[code])
 
     found_codes = {
         item["code"]
