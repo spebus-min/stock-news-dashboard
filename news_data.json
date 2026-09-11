@@ -1,9 +1,10 @@
 {
-  "updated_at": "2026-09-11 11:12:24",
+  "updated_at": "2026-09-11 11:31:13",
   "search_window": "優先72小時；若無結果則最多7天",
   "source_policy": "僅保留可信來源白名單",
   "total_watchlist": 37,
-  "total_articles": 63,
+  "total_articles": 62,
+  "total_resolved_urls": 62,
   "stocks": [
     {
       "name": "信邦",
@@ -14,19 +15,23 @@
           "title": "信邦9/15參加UBS舉辦之法說會- 新聞",
           "source": "MoneyDJ",
           "published_at": "2026-09-09 15:33:00",
-          "age_hours": 43.6,
+          "age_hours": 43.9,
           "score": 15,
           "discovery_url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxNaS1rcHRzNy1VcWdlQzFUR1dnczF3RUZVcDVGdHVYNUJNUU9BbGczWUxDZmVnTXRXMVVUdndiQnpLX0VWVzV0elhJVkRPM3RHdlRuaFRXMFZ4X2RUSWluaElzZDZrX0k3UkxTMWtkaElqaDNjQ1JGMXNZeWNpWjlNMUhUOFhMNEZhWXFfbXNYSU1hdw?oc=5",
-          "publisher_homepage": "https://www.moneydj.com"
+          "publisher_homepage": "https://www.moneydj.com",
+          "original_url": "https://www.moneydj.com/kmdj/news/newsviewer.aspx?a=8010a022-3e75-4ff8-9431-a1daa0d1111b",
+          "url_resolved": true
         },
         {
           "title": "信邦8月營收32.81億元年增32.47% 1—8月達238.35億元",
           "source": "鉅亨網",
           "published_at": "2026-09-10 12:42:41",
-          "age_hours": 22.4,
+          "age_hours": 22.7,
           "score": 11,
           "discovery_url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE1WYm9OTGFNeVZXY3BLbmUwVU5HLUhHeEFTa0FabHI5WlZPYWxPMHprUVBLRlFVMVQ5blgxeE4tNzJvNGRveGtDZk9VY3FfVXM?oc=5",
-          "publisher_homepage": "https://news.cnyes.com"
+          "publisher_homepage": "https://news.cnyes.com",
+          "original_url": "https://news.cnyes.com/news/id/6602792",
+          "url_resolved": true
         }
       ]
     },
@@ -45,19 +50,23 @@
           "title": "祥碩8 月營收年減32.51%、月增12.65%：同一個月為什麼能同時說好與壞| 台股",
           "source": "鉅亨網",
           "published_at": "2026-09-10 19:23:09",
-          "age_hours": 15.8,
+          "age_hours": 16.1,
           "score": 11,
           "discovery_url": "https://news.google.com/rss/articles/CBMiSEFVX3lxTFB5NDZ6OGYtRWhaeGM0RG1ST21JRUwzSXBuZjZhYm1OZlhhQkxEaWpqd3ZuQ2FzQUF2dk9tbzkzY0hURUdzVG1UTw?oc=5",
-          "publisher_homepage": "https://hao.cnyes.com"
+          "publisher_homepage": "https://hao.cnyes.com",
+          "original_url": "https://hao.cnyes.com/post/266928",
+          "url_resolved": true
         },
         {
           "title": "祥碩8月營收8.82億元年減32.51% 1—8月達78.86億元",
           "source": "鉅亨網",
           "published_at": "2026-09-09 22:05:17",
-          "age_hours": 37.1,
+          "age_hours": 37.4,
           "score": 11,
           "discovery_url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE9salJ3czZGZlVvc0FNMGItdW9hcVdGSVl5bVo0Umh0Z2hScTl1LTE5ZDF2M2FaUzdINk1EdVVkYmx2ZkprT2V5VlQ5LUZVVFE?oc=5",
-          "publisher_homepage": "https://news.cnyes.com"
+          "publisher_homepage": "https://news.cnyes.com",
+          "original_url": "https://news.cnyes.com/news/id/6602222",
+          "url_resolved": true
         }
       ]
     },
@@ -70,10 +79,12 @@
           "title": "拒絕大客戶要求赴墨西哥設廠！研華反押美國、日本　如今意外踩中AI與半導體大潮",
           "source": "經濟日報",
           "published_at": "2026-09-09 18:58:58",
-          "age_hours": 40.2,
+          "age_hours": 40.5,
           "score": 16,
           "discovery_url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTFBvMGRhcXhtUm5RM2RsM0RqbXkyYk5vTXdvcU53MDk0UHZuUklGREdHZzRUZEdsNE02bjU3RFMwc2oxRVppOURiamdySm40RFE1Y1RXeVg1bXU1d9IBX0FVX3lxTE9oN1VoektqUjgwaDFUZGVQejgwTDNmeEJtcHNpLVJwb1VCZ1RfRkJkbC1lWjFVbXZZbTRQNWxsWmNFWG5GZ1RReWRNMFNJWEJtTlFMSkdfSEFNZHVvMzBN?oc=5",
-          "publisher_homepage": "https://money.udn.com"
+          "publisher_homepage": "https://money.udn.com",
+          "original_url": "https://money.udn.com/money/story/5591/9744632",
+          "url_resolved": true
         }
       ]
     },
@@ -86,19 +97,23 @@
           "title": "文曄:本公司115年8月份自結合併營收約新台幣1,984億元",
           "source": "鉅亨網",
           "published_at": "2026-09-10 13:32:57",
-          "age_hours": 21.6,
+          "age_hours": 21.9,
           "score": 15,
           "discovery_url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE1OYTlyT2JRSlhURG1oSHpsenVmUDVkZksxYWVhR282WHlyT2l6WnhPZmpHWjQ3c001Q2pabEoxV1VzcHcwLTJzVElDQ3lKMGNkamFZ?oc=5",
-          "publisher_homepage": "https://news.cnyes.com"
+          "publisher_homepage": "https://news.cnyes.com",
+          "original_url": "https://news.cnyes.com/news/print/6601828",
+          "url_resolved": true
         },
         {
           "title": "文曄自結前8月合併營收約1.466兆元，年增109%",
           "source": "MoneyDJ",
           "published_at": "2026-09-09 17:39:00",
-          "age_hours": 41.5,
+          "age_hours": 41.8,
           "score": 15,
           "discovery_url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxOM2xFRmlRMWNNRHFNeXNrUlBLWHhTSUxrWFZ3UWJPQWpfdDJVOGJ3MUZUbmhzSzJEbEpvdVNWZzNpc2MtZFJhLVg4TGNjX0JfRWpEUjdDenZTZmFEdmlfYmFlMlpqNVVIcGFicnlQTVRkai1hVWFHdTZ0ZThUcWQ3RnBXSGdET0NjMnlvdk5WZzV1QQ?oc=5",
-          "publisher_homepage": "https://www.moneydj.com"
+          "publisher_homepage": "https://www.moneydj.com",
+          "original_url": "https://www.moneydj.com/kmdj/news/newsviewer.aspx?a=b04b44d4-c836-474d-b634-e379f4cda443",
+          "url_resolved": true
         }
       ]
     },
@@ -111,19 +126,23 @@
           "title": "光寶科8月營收196億元月年雙增 AI伺服器電源需求強勁",
           "source": "鉅亨網",
           "published_at": "2026-09-09 16:34:06",
-          "age_hours": 42.6,
+          "age_hours": 42.9,
           "score": 17,
           "discovery_url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTFBHbTJyYm10ZHBKQnE1eTYxRXVuMll2QmNPQzFzeXRBRE1WQk9wMmxwTzk3NmpaR0VOUlJEMHExdzJyNG95R2NjYjZDRUlhcWc?oc=5",
-          "publisher_homepage": "https://news.cnyes.com"
+          "publisher_homepage": "https://news.cnyes.com",
+          "original_url": "https://news.cnyes.com/news/id/6601562",
+          "url_resolved": true
         },
         {
           "title": "AI伺服器電源需求強勁，光寶科營收為何能雙雙成長？ | 鉅亨網 - AIGC",
           "source": "鉅亨網",
           "published_at": "2026-09-09 08:34:50",
-          "age_hours": 50.6,
+          "age_hours": 50.9,
           "score": 17,
           "discovery_url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxQc0FPdUZOOU55a3IxcUNXOGpuTUpISFpjTVQ4aWlJcXlsdTRUMjhaVjIxNkxkV1FEWm5DakZwUEZxcWxXVTZhTkMwZ2pJNkRrb2ctN01tdUxFWWxqR2o5S1RlQ29Fdm1XeEVKbGkzSWtiNS1EbURqdkJHeGdRckhZY21XVHVDMlNleHVoMXROU3A?oc=5",
-          "publisher_homepage": "https://news.cnyes.com"
+          "publisher_homepage": "https://news.cnyes.com",
+          "original_url": "https://news.cnyes.com/news/aigc/answer/ai%E4%BC%BA%E6%9C%8D%E5%99%A8%E9%9B%BB-57623439",
+          "url_resolved": true
         }
       ]
     },
@@ -142,19 +161,23 @@
           "title": "《半導體》AI儲存需求爆發群聯8月營收年增377%創高- 證券",
           "source": "工商時報",
           "published_at": "2026-09-09 16:58:00",
-          "age_hours": 42.2,
+          "age_hours": 42.5,
           "score": 20,
           "discovery_url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE4tNFFHTm4zak1XU3BnSlpQT1JHUmRGNU41MXhZRzRVZUZUMk9jcTRFSUlnQmZfa2dHNzR3dm9KTFZITjB3Zk5YdU04NDc5XzRFYldBdnlicUdoTTc2aHBv?oc=5",
-          "publisher_homepage": "https://www.ctee.com.tw"
+          "publisher_homepage": "https://www.ctee.com.tw",
+          "original_url": "https://www.ctee.com.tw/news/20260909701897-430201",
+          "url_resolved": true
         },
         {
           "title": "群聯8月合併營收月增4% 華新科增2.8% | 市場焦點 | 證券",
           "source": "經濟日報",
           "published_at": "2026-09-10 01:19:33",
-          "age_hours": 33.8,
+          "age_hours": 34.1,
           "score": 18,
           "discovery_url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxOOS1fZEo2bVhrY0RVY0dFVFpYa25JeFYyTmxZOVhZVDdQNzYyOGJ5eVdYekI3MFlaNmJpT2xDRWhZbHNaaG56UmwzTndJSENSMkNGYS0tTGRzQkllOVVIemJ5bDhPU0N5M2ZScV9hYjdwOERkZlc2N3FLR0FRY1ZxLVdHR3dVM0tIcEVBSWtlbEo?oc=5",
-          "publisher_homepage": "https://money.udn.com"
+          "publisher_homepage": "https://money.udn.com",
+          "original_url": "https://money.udn.com/money/story/5607/9744791?from=udnamp-referralnews_ch1001artbottom",
+          "url_resolved": true
         }
       ]
     },
@@ -173,19 +196,23 @@
           "title": "《通網股》聯發科8月營收年增逾4成AI與ASIC接力催油門- 證券",
           "source": "工商時報",
           "published_at": "2026-09-10 17:17:00",
-          "age_hours": 17.9,
+          "age_hours": 18.2,
           "score": 16,
           "discovery_url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE52cUlJX29rU2ttTkh3U1hpUlJTcDctRVRtWkstckdpTGk0VDVNamFxZklXbzVGR2FOYlVRSk5CSVB2OU5uLTFTckZHdXJUSFFQZ2pnUVpMckNYZ1NTbHp3?oc=5",
-          "publisher_homepage": "https://www.ctee.com.tw"
+          "publisher_homepage": "https://www.ctee.com.tw",
+          "original_url": "https://www.ctee.com.tw/news/20260910702091-430201",
+          "url_resolved": true
         },
         {
           "title": "聯發科:聯發科技115年8月份自結合併營收淨額公告",
           "source": "鉅亨網",
           "published_at": "2026-09-11 00:47:51",
-          "age_hours": 10.4,
+          "age_hours": 10.7,
           "score": 15,
           "discovery_url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE1QUThPYmhtTWcxcV9fYjAyMWZERUZQWHZndFpYTDhPU1A2UlNMSW84NXNIRkE0akNXWHptbzNLUG41b2dEcHVWWk1zT0dqYlNER3hV?oc=5",
-          "publisher_homepage": "https://news.cnyes.com"
+          "publisher_homepage": "https://news.cnyes.com",
+          "original_url": "https://news.cnyes.com/news/print/6603705",
+          "url_resolved": true
         }
       ]
     },
@@ -198,19 +225,23 @@
           "title": "鑽石投資8月營收0.01億元年減87.74% 1—8月達22.04億元",
           "source": "鉅亨網",
           "published_at": "2026-09-08 22:17:22",
-          "age_hours": 60.9,
+          "age_hours": 61.2,
           "score": 15,
           "discovery_url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE1ZUlVFRkd5OURlN21VUTRZMFJZRVRVVXRORm8xWFd1TnZWQXJfS2hGYkZEaTItYnF2RE1YNE82T21IaHhJYUVrSjdmd204UnctVU1z?oc=5",
-          "publisher_homepage": "https://news.cnyes.com"
+          "publisher_homepage": "https://news.cnyes.com",
+          "original_url": "https://news.cnyes.com/news/print/6601083",
+          "url_resolved": true
         },
         {
           "title": "鑽石投資 115年8月營收138萬、年減87.74%",
           "source": "MoneyDJ",
           "published_at": "2026-09-08 16:56:00",
-          "age_hours": 66.2,
+          "age_hours": 66.5,
           "score": 15,
           "discovery_url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxPdmVXN2lxWHFoMk1BUEFtcGNkLXZtRjdGbThEYV9vdUduVWdzUnhmeFFNOUZaUVlEYURVSDdBNm9GQzBtTjd3ZUFoeFZOempyRzVLMG5SRDRMZXRYeVMyei1RbmtBdHZsYnRxTlItRXJrd3VpYkpvc2NCLXJtcElPNDFkd0pxeEtEaVlQcWNYaTBrZw?oc=5",
-          "publisher_homepage": "https://www.moneydj.com"
+          "publisher_homepage": "https://www.moneydj.com",
+          "original_url": "https://www.moneydj.com/kmdj/news/newsviewer.aspx?a=7f43159e-60a2-4088-8c38-2facf95a25ed",
+          "url_resolved": true
         }
       ]
     },
@@ -223,19 +254,23 @@
           "title": "出貨續擴大 和碩上月營收年增34%",
           "source": "工商時報",
           "published_at": "2026-09-11 03:00:00",
-          "age_hours": 8.2,
+          "age_hours": 8.5,
           "score": 18,
           "discovery_url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE0yczhBZmpsMk5hNWRqbmpDdUdMZi1ycndwWWVkLS1fU1J2MkZaT1Y3VWl1dHNnbHBCLXlUUjcycm51S2xqMktLNG5DUEo5bE5raUtQYmFjeVZTYXNuakpj?oc=5",
-          "publisher_homepage": "https://www.ctee.com.tw"
+          "publisher_homepage": "https://www.ctee.com.tw",
+          "original_url": "https://www.ctee.com.tw/news/20260911700241-439901",
+          "url_resolved": true
         },
         {
           "title": "和碩8月合併營收月增2% 第4季打蘋果光",
           "source": "經濟日報",
           "published_at": "2026-09-11 00:36:46",
-          "age_hours": 10.6,
+          "age_hours": 10.8,
           "score": 18,
           "discovery_url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE04RUh2b2pMaFk5NnpWUng5YVo4dXEyNGxwUkIwSktaRlNmaFJnYjM5SkdyQThjTjI3N1pMdlRSeEhTSVVvNmU5dnRMZ1NVZ2lYTE84dnFxX2dYd9IBX0FVX3lxTFBWdUlzSDV4TW9XZUQ3RDQzVVRFcnE5VFB5azQ0QXhtUTRSNnN1VWg5LWRPYnlyZlY5OE1oa1pJUV9TRUpsMnVJUE8tOWN6WldveHdCWWJNQmVEQ05NWFFr?oc=5",
-          "publisher_homepage": "https://money.udn.com"
+          "publisher_homepage": "https://money.udn.com",
+          "original_url": "https://money.udn.com/money/story/5710/9747151",
+          "url_resolved": true
         }
       ]
     },
@@ -248,19 +283,23 @@
           "title": "AI需求如何推升台達電營收？ | 鉅亨網 - AIGC",
           "source": "鉅亨網",
           "published_at": "2026-09-09 09:16:42",
-          "age_hours": 49.9,
+          "age_hours": 50.2,
           "score": 16,
           "discovery_url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxQNUxBN0dMTlgzM0kxamV4RDRTNk1zS01iZkdFQzhnM1ZncWV5NVFEanRrTHY0NllzaVdkb0xVX29FU2hpU3RlUjFlUWlYR3o0V1lZazdzcG1hUFJhSW5ELU9SbEp1bExJWkxBaktPaDFSbFp3Ykg5SnRIYTloLXgtbHZ3cnhIaWY5V3hwdzZ4OWc?oc=5",
-          "publisher_homepage": "https://news.cnyes.com"
+          "publisher_homepage": "https://news.cnyes.com",
+          "original_url": "https://news.cnyes.com/news/aigc/answer/ai%E9%9C%80%E6%B1%82%E5%A6%82%E4%BD%95-57625473",
+          "url_resolved": true
         },
         {
           "title": "《電零組》台達電前8月營收年增逾4成 今年AI占比估25%",
           "source": "工商時報",
           "published_at": "2026-09-09 16:16:00",
-          "age_hours": 42.9,
+          "age_hours": 43.2,
           "score": 15,
           "discovery_url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE9uSjc0TDhTVHZzMWJnTWhCd3JkQzRsdWNOTjhqSWFBUUw5ckotdEhPRWxTTWlwRXRQUkVPaklGemVtUHlINUhGNTYyaVBiSFpuVzkzanFOT0FpS3FfSFdR?oc=5",
-          "publisher_homepage": "https://www.ctee.com.tw"
+          "publisher_homepage": "https://www.ctee.com.tw",
+          "original_url": "https://www.ctee.com.tw/news/20260909701770-430201",
+          "url_resolved": true
         }
       ]
     },
@@ -273,19 +312,23 @@
           "title": "新店挹注寶雅8月營收衝鋒- 日報",
           "source": "工商時報",
           "published_at": "2026-09-11 03:00:00",
-          "age_hours": 8.2,
+          "age_hours": 8.5,
           "score": 14,
           "discovery_url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE9lUlNiLXZmTi1DaFljYjROUmNYNXI4ZHJrcTlVM0NSaWVuTWNYWmxoSmZCLTh3bW5hVk1CSi1GLUhxSEgzd1RKLWF6N3RwSEtPUlJDdngzWGFpeDhSOVFZ?oc=5",
-          "publisher_homepage": "https://www.ctee.com.tw"
+          "publisher_homepage": "https://www.ctee.com.tw",
+          "original_url": "https://www.ctee.com.tw/news/20260911700281-439901",
+          "url_resolved": true
         },
         {
           "title": "寶雅8月營收年增10% 加速展店",
           "source": "經濟日報",
           "published_at": "2026-09-11 00:43:47",
-          "age_hours": 10.4,
+          "age_hours": 10.7,
           "score": 14,
-          "discovery_url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxQdUhla0xzeFlGakNYZmFidk9ieW9xNmoxUkhCb0lNekg4TmIyaEZ2Q2dwMnF6ek1uelMwekVUOC1SejZ5eDM5UEYxVkg5SGtPZnJhVTFyNGN2Vkx0dHB0cWN6YzlFb0kwY0d5ZW1NeDEwXzVSTWd2SHg0TnNqR2NqcVN30gFgQVVfeXFMT2U1LVgyTnlkWGlMRVMzZmNlNENQSURBWDNHYmUyZkExWEZFTm5ic0RJRjdWb0pOUVNhS01WcjVnRTkxZkk1RElBWkV3TDJKeGJvSWpBcDZQbUF6NnRxVzZJ?oc=5",
-          "publisher_homepage": "https://money.udn.com"
+          "discovery_url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTFBTbEZhRl9mZkh3Y3JYRUVoWmxwWTlxUmF6SG5CaVVrVGJJS3AzZmgyZi1TUTRjcEhNelNid3dxd2JnZnE3T2NjNDMxNzFrdHVST01Ba19IX3MxWlXSAWBBVV95cUxPZTUtWDJOeWRYaUxFUzNmY2U0Q1BJREFYM0diZTJmQTFYRkVObmJzRElGN1ZvSk5RU2FLTVZyNWdFOTFmSTVESUFaRXdMMkp4Ym9JakFwNlBtQXo2dHFXNkk?oc=5",
+          "publisher_homepage": "https://money.udn.com",
+          "original_url": "https://money.udn.com/money/story/11074/9747137",
+          "url_resolved": true
         }
       ]
     },
@@ -295,22 +338,26 @@
       "news_count": 2,
       "articles": [
         {
-          "title": "力積電8月合併營收攀逾四年高點",
+          "title": "力積電8月合併營收攀逾四年高點 | 集中市場 | 證券",
           "source": "經濟日報",
           "published_at": "2026-09-11 00:48:58",
-          "age_hours": 10.4,
+          "age_hours": 10.7,
           "score": 18,
-          "discovery_url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE85ajY0aTN3TU55OHA0MVlSTEV4OUxMV01yTnc3aDNwb0hMMUwtel9vUWJiVU5jY00zWDlQemd0aHRzd1lwYWxNd1dpTnV2UElZenBtVV9uZUpLVURpZmI1MnU3VlJVcnVjMmlwdndtdTRBRTVRYkJnWW1VUjU2d9IBX0FVX3lxTE1MZlhfMC1aQm50RUs2dW15UXR5eDhVWFZMb1didW11dXBxbEg2dXVMRTljR3pVdnlhNTh1Z2VCTXBDNzlUeTF4NllIU1R1cDYteXN4TzdCLWRxeE85WUVB?oc=5",
-          "publisher_homepage": "https://money.udn.com"
+          "discovery_url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE9fZzNaUHRoWFhjZjZNREdFQVRIZ2M4Z200UWhtOEoyVjltZVhTZ2dxMmN5ZTdkT0RPT0c5bXJNSTJ1V1FiYmpvUmR3azZsRHdTMURGcG1tdm1DZw?oc=5",
+          "publisher_homepage": "https://money.udn.com",
+          "original_url": "https://money.udn.com/money/story/5710/9747120",
+          "url_resolved": true
         },
         {
           "title": "力積電 8 月營收 70.09 億元：折舊是固定成本，稼動率才是獲利的開關",
           "source": "鉅亨網",
           "published_at": "2026-09-10 23:04:01",
-          "age_hours": 12.1,
+          "age_hours": 12.4,
           "score": 15,
           "discovery_url": "https://news.google.com/rss/articles/CBMiSEFVX3lxTE5zaHhkdlNjaFhVaHVlX1czUTRBSUdOdmgxMUctRVdkVFhRUm1MUG5PbHVoR0ZYa3FRdDB0Vm5ZZERQcUpVQ2VETA?oc=5",
-          "publisher_homepage": "https://hao.cnyes.com"
+          "publisher_homepage": "https://hao.cnyes.com",
+          "original_url": "https://hao.cnyes.com/post/266963",
+          "url_resolved": true
         }
       ]
     },
@@ -323,19 +370,23 @@
           "title": "群創8月合併營收月減1%",
           "source": "經濟日報",
           "published_at": "2026-09-11 00:24:15",
-          "age_hours": 10.8,
+          "age_hours": 11.1,
           "score": 18,
           "discovery_url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE94bS03Nzd3VmxobFdaanFyeU9MVnV3cXczN3lvejZuQUU5alRjZ1dhVUJDNXVaZXBYTVh5bzN5am5xa2dsanozd1RGUWVISVk0T2g4UVM0MDFKd9IBX0FVX3lxTE5pT2R6LU9VYzVIVEpZWVEyeXRVdUhmVTh5QTZzcUVXRWVpdjdVMEFmSnFETWVwblZxb3liNHViSGVlSmx1Q0x1V080ZEU1XzNReEhWZURjOUR6Wlk4SDRZ?oc=5",
-          "publisher_homepage": "https://money.udn.com"
+          "publisher_homepage": "https://money.udn.com",
+          "original_url": "https://money.udn.com/money/story/5710/9747160",
+          "url_resolved": true
         },
         {
           "title": "《光電股》面板雙虎前8月營收 群創增11.8%、友達減1.8%",
           "source": "工商時報",
           "published_at": "2026-09-10 15:45:00",
-          "age_hours": 19.4,
+          "age_hours": 19.7,
           "score": 14,
           "discovery_url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFBFYWZKLVVQQnhhY3Rpa29DSmhWSDZXTFNSTEY2TDV1UElDMjZUUDhXT3BEZlBETTdTRXNEeE1sVk1uVllNN0hJQzNyRl9ZNzcwbmZDX2lVdU1RRjhhNy1r?oc=5",
-          "publisher_homepage": "https://www.ctee.com.tw"
+          "publisher_homepage": "https://www.ctee.com.tw",
+          "original_url": "https://www.ctee.com.tw/news/20260910701772-430201",
+          "url_resolved": true
         }
       ]
     },
@@ -348,19 +399,23 @@
           "title": "台積電 CoWoS 產能擴產仍無法跟上 AI 需求 訂單外溢非台積電陣營",
           "source": "經濟日報",
           "published_at": "2026-09-10 19:00:00",
-          "age_hours": 16.2,
+          "age_hours": 16.5,
           "score": 28,
           "discovery_url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxOYzE4cVdSS2stTmpjNHQ5eXdSZDdYQ3RhQS1LWF95YlVOSnY1Vy1MOTBNVWQzMDdDYjlvd1hkc19iakphRDFZWm9va2RSODNMWHA1LXlydERZVlhuNU1CdGtGaE9JcW9uNmZMamVMeXdoSVNGcmxENk1JTGgtVURqZtIBX0FVX3lxTE4wUW9VWWRlZ0VLcTNNeHZDNVVsVFlBMWdxZVJkdnRLbFVQdzltdDU2SngzQmd5UHNScWREN2tBUHVjcExQR011MEgwUDFkbzJMRkdFNGJWMFgzMldmSE5r?oc=5",
-          "publisher_homepage": "https://money.udn.com"
+          "publisher_homepage": "https://money.udn.com",
+          "original_url": "https://money.udn.com/money/story/5612/9748014?from=edn_related_storybottom",
+          "url_resolved": true
         },
         {
           "title": "AI晶片訂單強勁 台積電8月營收首度衝破5000億元再創單月歷史新高",
           "source": "經濟日報",
           "published_at": "2026-09-10 13:57:46",
-          "age_hours": 21.2,
+          "age_hours": 21.5,
           "score": 20,
           "discovery_url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxQMEdVSW5XaWhGektrT1NJcFJCUzhZQ2dYX2NyMWswS284bkdsTzEyY1RvbVVabkplZDMxQjVSUDJWTE55ZjlNUjNnMnNZZWpGNlpqOGZlNFduOTJUNW9qeF9wblJKazZ1eGpCLXBOVzg5RHpQYVJNYUE0X0xSaVpJVNIBX0FVX3lxTFBHNENEdVFrMkJJVXJ0YXJFcmZjTTlmZURtV2hLZWs4dl9LOHBOM3JrR0RoenVLN3lYUmdRZGVlVG1xdUktNHJReDMzLXVab3ZNUlFCdm1mQ3NxRVRLTWxr?oc=5",
-          "publisher_homepage": "https://money.udn.com"
+          "publisher_homepage": "https://money.udn.com",
+          "original_url": "https://money.udn.com/money/story/5612/9746255?from=edn_related_storybottom",
+          "url_resolved": true
         }
       ]
     },
@@ -379,19 +434,23 @@
           "title": "《電週邊》AI伺服器出貨旺廣達8月營收突破4000億寫新高- 證券",
           "source": "工商時報",
           "published_at": "2026-09-08 16:53:00",
-          "age_hours": 66.3,
+          "age_hours": 66.6,
           "score": 20,
           "discovery_url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFA4VjhXd1g2ZTlaRUJXcFoyLU02Nkl3V3lZZ1llZmd3T3RIdDNIT0RNMVV1MkFWUm1weHliQTJqTUh0aU5oeW1YbFJqUjIzOEt4NlNjeVJyeEhEQXFvS0xN?oc=5",
-          "publisher_homepage": "https://www.ctee.com.tw"
+          "publisher_homepage": "https://www.ctee.com.tw",
+          "original_url": "https://www.ctee.com.tw/news/20260908701610-430201",
+          "url_resolved": true
         },
         {
           "title": "【優分析即時新聞】廣達(2382)8月營收年增177.5%創高，合約負債創新高、AI伺服器訂單能見度看到2028年",
           "source": "鉅亨網",
           "published_at": "2026-09-09 12:00:21",
-          "age_hours": 47.2,
+          "age_hours": 47.5,
           "score": 18,
           "discovery_url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE9BT3YxTVYxX3FyS25FaGJsZjdWRU1qMnlQa0xRR1E3SmwzdzMzUkdyemV6RXgzR1NLS0s0c3hYMlNSUURsSTA0VnVaQQ?oc=5",
-          "publisher_homepage": "https://m.cnyes.com"
+          "publisher_homepage": "https://m.cnyes.com",
+          "original_url": "https://m.cnyes.com/news/id/6601453",
+          "url_resolved": true
         }
       ]
     },
@@ -404,19 +463,23 @@
           "title": "義隆8月營收月減逾15%，缺料及客戶庫存壓抑拉貨- 新聞",
           "source": "MoneyDJ",
           "published_at": "2026-09-07 11:27:00",
-          "age_hours": 95.7,
+          "age_hours": 96.0,
           "score": 15,
           "discovery_url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxNMjJYaWp4MV9EeFp3dEtVaF9tS0N6OG4yZE8xWEpDQ25jOXRoaGs3XzJoVm1WUUQ4eXIzTGlFaFVuMEhVVDBETTE4UDZ4RDdoTjVMOEg2MXJrUC1WYWpjRER2d0J3TzMzVm13Tk0wZlUwM1I2RTR6dlFVWWtYaXVTd05wekVWeUk0V1RHREh3U3lSQQ?oc=5",
-          "publisher_homepage": "https://www.moneydj.com"
+          "publisher_homepage": "https://www.moneydj.com",
+          "original_url": "https://www.moneydj.com/kmdj/news/newsviewer.aspx?a=ae94e3ed-3213-4eca-ae46-2df25f43cbaf",
+          "url_resolved": true
         },
         {
           "title": "義隆營收年減，是否與整體半導體產業景氣連動？ | 鉅亨網 - AIGC",
           "source": "鉅亨網",
           "published_at": "2026-09-04 22:27:01",
-          "age_hours": 156.7,
+          "age_hours": 157.0,
           "score": 13,
           "discovery_url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxOVXY2SlNHTVBUREpFbFV3eE9TT2R0aHdKVUQ2WllWRDROaXVhVWxGbnVEdm9sQVcxWXcxVUNNMDFKU3NpaV9mRXFWRkRsWnFNVFRSaERmelRkMExoU2dzbGpDX01kRlVPLS1YSkRDVXRvOFN3NmtGR2NxdUtlQy1nckdCMjQzX0pnZEZxX0pSRFNoWDBsRU44MnF1ejNOSFNpMXNMUG9n?oc=5",
-          "publisher_homepage": "https://news.cnyes.com"
+          "publisher_homepage": "https://news.cnyes.com",
+          "original_url": "https://news.cnyes.com/news/aigc/answer/%E7%BE%A9%E9%9A%86%E7%87%9F%E6%94%B6%E5%B9%B4%E6%B8%9B-57477807",
+          "url_resolved": true
         }
       ]
     },
@@ -429,19 +492,23 @@
           "title": "緯創營收／8月突破4,000億元大關、再創單月新高 AI 伺服器需求超旺",
           "source": "經濟日報",
           "published_at": "2026-09-09 20:10:13",
-          "age_hours": 39.0,
+          "age_hours": 39.3,
           "score": 20,
           "discovery_url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTFBnaHRsSThVRXUxRV80VkJwSjFhYkp2bmlDWDA2Wm1LazRMWF9OTW1ldTUzcm9WelZ5Q0NHMU84ZHlfVEt0X0UxQ1BHNTRkU1FCZVkzSF80U0JzUdIBX0FVX3lxTE9GTjhLRXhTZTRSVHdCUldDR1NKVGVSdTJkOFJQSXJwdDN0djVjUDZWUDEzR3d4V1lybGpkdVlSOEljQ1NFVWFjRmplaUwwbHN4djJBaTQ4R3A1VkNISDlB?oc=5",
-          "publisher_homepage": "https://money.udn.com"
+          "publisher_homepage": "https://money.udn.com",
+          "original_url": "https://money.udn.com/money/story/5710/9744754",
+          "url_resolved": true
         },
         {
           "title": "〈電子五哥營收〉緯創8月營收4600億元續創單月新高 再砸逾2億美元投資美越伺服器產能",
           "source": "鉅亨網",
           "published_at": "2026-09-09 19:17:32",
-          "age_hours": 39.9,
+          "age_hours": 40.2,
           "score": 20,
           "discovery_url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE1iZHNMaEs4UTI2ZHMyaVVjTGNVQ2VNV1FHQmFmVWRPTGRVZEF6UHYxZE13TGpUY0R3Tm02azViMVg1ZThOOHh0dUlSS2oyODg?oc=5",
-          "publisher_homepage": "https://news.cnyes.com"
+          "publisher_homepage": "https://news.cnyes.com",
+          "original_url": "https://news.cnyes.com/news/id/6601865",
+          "url_resolved": true
         }
       ]
     },
@@ -454,19 +521,23 @@
           "title": "水泥雙雄8月營收不同調 台泥年增1成、亞泥年減1.3%",
           "source": "中央社",
           "published_at": "2026-09-10 19:10:00",
-          "age_hours": 16.0,
+          "age_hours": 16.3,
           "score": 14,
           "discovery_url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE1COVZFTkdtRUtvXzljdkRVVmJwQ1pVak8tdWxJR2syQ2Q0Rm0xazBvSXY4QzlmcjZLTHJxN0ZZYS10cG1vblBIQURlUmVNLWE1am9WZk1ZN2hkaExOYXc?oc=5",
-          "publisher_homepage": "https://www.cna.com.tw"
+          "publisher_homepage": "https://www.cna.com.tw",
+          "original_url": "https://www.cna.com.tw/news/afe/202609100305.aspx",
+          "url_resolved": true
         },
         {
           "title": "傳統旺季加持台泥、亞泥8月營收成長- 產業",
           "source": "工商時報",
           "published_at": "2026-09-10 17:46:00",
-          "age_hours": 17.4,
+          "age_hours": 17.7,
           "score": 14,
           "discovery_url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE4xRVRqR3Y5eDV1Q0V5UkRkYURUb1l5RllvUTZGcWlCZzM5S0Q1T05qc0RvSTVNWGVZYTIwLUFLd2I1Q1RLWU0xSlU0OExZUzJtTEdlSlplaHg1aF9rZVcw?oc=5",
-          "publisher_homepage": "https://www.ctee.com.tw"
+          "publisher_homepage": "https://www.ctee.com.tw",
+          "original_url": "https://www.ctee.com.tw/news/20260910701987-430503",
+          "url_resolved": true
         }
       ]
     },
@@ -479,19 +550,23 @@
           "title": "大江基因8月營收0.23億元年增30.93% 1—8月達1.66億元",
           "source": "鉅亨網",
           "published_at": "2026-09-08 18:07:52",
-          "age_hours": 65.1,
+          "age_hours": 65.4,
           "score": 11,
           "discovery_url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE9STUU1eHhZMDBkMFFzSjBEY05LNTBJZVhhSXRlUHotd3lpLS1FV2plRlppYlZWRTJWWEJlYkx2UmEzX0Q0TVVxWFV2OHptMEhIRjRj?oc=5",
-          "publisher_homepage": "https://news.cnyes.com"
+          "publisher_homepage": "https://news.cnyes.com",
+          "original_url": "https://news.cnyes.com/news/print/6600543",
+          "url_resolved": true
         },
         {
           "title": "大江8月營收5.46億元年增2.05% 1—8月達44.13億元",
           "source": "鉅亨網",
           "published_at": "2026-09-08 17:28:08",
-          "age_hours": 65.7,
+          "age_hours": 66.0,
           "score": 11,
           "discovery_url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE1vTGx4N2xoWUdkaWhEMkJpV1dvbmZMVlVVZzB2YTJtTWotMUMtZllOM1k5UEl5cEVob2RqUG9ZeXN6Tk1TV0kxM1pmdmVaNXE3SEQ4?oc=5",
-          "publisher_homepage": "https://news.cnyes.com"
+          "publisher_homepage": "https://news.cnyes.com",
+          "original_url": "https://news.cnyes.com/news/print/6600555",
+          "url_resolved": true
         }
       ]
     },
@@ -504,19 +579,23 @@
           "title": "《半導體》家登8月營收穩高檔H2勝H1、獲利成長可期- 證券",
           "source": "工商時報",
           "published_at": "2026-09-10 10:28:00",
-          "age_hours": 24.7,
+          "age_hours": 25.0,
           "score": 19,
           "discovery_url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFBRTjRtLVYwR1lBWmdSYzZCUkZibWdwQ2drQkNhOEp0MzUtckRVWkdIa1BWSmh1YTQtcmVZemFOMERyX3lDdWRMSWl0SGhEcWwxbHRMTjZSVVNxQjhOcDNJ?oc=5",
-          "publisher_homepage": "https://www.ctee.com.tw"
+          "publisher_homepage": "https://www.ctee.com.tw",
+          "original_url": "https://www.ctee.com.tw/news/20260910700980-430201",
+          "url_resolved": true
         },
         {
           "title": "前八月營收年增31％ 家登營運旺海外擴產加速- 日報",
           "source": "工商時報",
           "published_at": "2026-09-11 03:00:00",
-          "age_hours": 8.2,
+          "age_hours": 8.5,
           "score": 18,
           "discovery_url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFAzNGhRNHBqT0pEekNMQ3RfVjliNG9DWmx0SnhQOGxyVUhBMnE0ZXVjTlNXYnljU0t6M3VGN3BoejJHNWxqdm9lWHNUNlRfRW9TU0xtcVdONjhNb214ZUZZ?oc=5",
-          "publisher_homepage": "https://www.ctee.com.tw"
+          "publisher_homepage": "https://www.ctee.com.tw",
+          "original_url": "https://www.ctee.com.tw/news/20260911700215-439901",
+          "url_resolved": true
         }
       ]
     },
@@ -529,19 +608,23 @@
           "title": "鈦昇8月營收年增37.29％，後續成長動能為何？ | 鉅亨網 - AIGC",
           "source": "鉅亨網",
           "published_at": "2026-09-07 10:58:19",
-          "age_hours": 96.2,
+          "age_hours": 96.5,
           "score": 12,
           "discovery_url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxPN0FLSnBfV2dsNk1fbzVaZmMxU09rcGozbFZNcEE1ZkZjeTBSRWZHTndUeU1LbkYzMWFieXVJQkp1WmR2dmJSaWNmLXFmZEliTVFaWXlraEZBaTZ1dVpMcVg3UUowSG1BU3RaeGZoVFZ3R214eTEwUl9kNkRGMUdwUUhLMTVTVE9pRlNpcUFncFo4QVk2NmpWMWlVaw?oc=5",
-          "publisher_homepage": "https://news.cnyes.com"
+          "publisher_homepage": "https://news.cnyes.com",
+          "original_url": "https://news.cnyes.com/news/aigc/answer/%E9%88%A6%E6%98%878%E6%9C%88%E7%87%9F%E6%94%B6-57547662",
+          "url_resolved": true
         },
         {
           "title": "鈦昇8月營收1.53億元年增37.29% 1—8月達13.52億元",
           "source": "鉅亨網",
           "published_at": "2026-09-08 02:57:20",
-          "age_hours": 80.2,
+          "age_hours": 80.5,
           "score": 11,
           "discovery_url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE5LUjNFSG90QjZsR0tLQlFLQ1Uta3VGajdFMDlRSEQxemxzMVQzSWx2ZWRVeV9ZQkZmZFRwVWpDNnhaLTBDNm5XSy10TnIyd2d4dXY0?oc=5",
-          "publisher_homepage": "https://news.cnyes.com"
+          "publisher_homepage": "https://news.cnyes.com",
+          "original_url": "https://news.cnyes.com/news/print/6600014",
+          "url_resolved": true
         }
       ]
     },
@@ -554,10 +637,12 @@
           "title": "致茂 8 月營收年增 156%：測試設備出貨強，還要等哪三個證據",
           "source": "鉅亨網",
           "published_at": "2026-09-08 12:54:24",
-          "age_hours": 70.3,
+          "age_hours": 70.6,
           "score": 15,
           "discovery_url": "https://news.google.com/rss/articles/CBMiSEFVX3lxTE12WUdZZEZvZFVKbFFoZmdWZlRTcHV1bHVQengzSmFyc1RaSjRGUWZzMHFFMm1mY0F5cXJOOHNBa2c4MUdiLUdfVg?oc=5",
-          "publisher_homepage": "https://hao.cnyes.com"
+          "publisher_homepage": "https://hao.cnyes.com",
+          "original_url": "https://hao.cnyes.com/post/266582",
+          "url_resolved": true
         }
       ]
     },
@@ -570,19 +655,23 @@
           "title": "中華食8月營收1.77億元年增1.19% 1—8月達13.73億元",
           "source": "鉅亨網",
           "published_at": "2026-09-10 12:44:32",
-          "age_hours": 22.5,
+          "age_hours": 22.8,
           "score": 11,
           "discovery_url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE5ZOU5YLUxIaldJTVR5MDVXaURzOXlyQ1o0Yml4RTNFSDBwOHVNaG9oN3IxWGdIQ0daeWE0dFZydklSN21ldHByT2lUM2Y4a1U?oc=5",
-          "publisher_homepage": "https://news.cnyes.com"
+          "publisher_homepage": "https://news.cnyes.com",
+          "original_url": "https://news.cnyes.com/news/id/6602797",
+          "url_resolved": true
         },
         {
           "title": "中華食 115年8月營收1.77億、年增1.19%",
           "source": "MoneyDJ",
           "published_at": "2026-09-10 09:44:00",
-          "age_hours": 25.5,
+          "age_hours": 25.8,
           "score": 11,
           "discovery_url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxNTnVqaTZGV0VpRnpfTy1kYVdPZGVsTC10UkdSZUFoZVE2OG5XeWhwaTVhYjRBU1lObDc0MDJRSTNZZkJwSzl3UXNiSjRCcjhDTXdaaEY0eW9BaXktUFk4dGpGUEJHY0dqY2U2U0NQQmduVFVUMFJBVzRmc056Rmx3ZmJMaXNBZnFBa0hfSGJuTllGQQ?oc=5",
-          "publisher_homepage": "https://www.moneydj.com"
+          "publisher_homepage": "https://www.moneydj.com",
+          "original_url": "https://www.moneydj.com/kmdj/news/newsviewer.aspx?a=791bc02e-e567-4946-8944-170edb4bed68",
+          "url_resolved": true
         }
       ]
     },
@@ -595,19 +684,23 @@
           "title": "卜蜂 8 月營收 23.64 億元：穩定的數字藏不住兩頭的風險",
           "source": "鉅亨網",
           "published_at": "2026-09-11 09:05:41",
-          "age_hours": 2.1,
+          "age_hours": 2.4,
           "score": 11,
           "discovery_url": "https://news.google.com/rss/articles/CBMiSEFVX3lxTE9pMFBHUmVranNxa0RLQ05reHdMNkhXV2ZHQVNVb2R3c25adm1GZllXbkJpN1NhNGVfb2hyaFowaGpLNnRFZHFHcw?oc=5",
-          "publisher_homepage": "https://hao.cnyes.com"
+          "publisher_homepage": "https://hao.cnyes.com",
+          "original_url": "https://hao.cnyes.com/post/267014",
+          "url_resolved": true
         },
         {
           "title": "卜蜂8月營收23.64億元年增1.31% 1—8月達193.28億元",
           "source": "鉅亨網",
           "published_at": "2026-09-10 05:43:41",
-          "age_hours": 29.5,
+          "age_hours": 29.8,
           "score": 11,
           "discovery_url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE5NNzJLLU42MDVnNHAwcktVcFFYdUE1dDlia1BVeTFsSVl2ZER5SDFXQ05xSW9EdmE5dEtSaWhURW9PdmN2ZXdvTW9hRnowU0hEcGFv?oc=5",
-          "publisher_homepage": "https://news.cnyes.com"
+          "publisher_homepage": "https://news.cnyes.com",
+          "original_url": "https://news.cnyes.com/news/print/6601611",
+          "url_resolved": true
         }
       ]
     },
@@ -620,19 +713,23 @@
           "title": "翔名8月營收3.04億元年增71.52% 1—8月達21.79億元",
           "source": "鉅亨網",
           "published_at": "2026-09-09 16:57:56",
-          "age_hours": 42.2,
+          "age_hours": 42.5,
           "score": 11,
           "discovery_url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE9IdUl5bUJla05RMzN2Ym1oUVhqS0dndkdma28xYzV4NnVxTHFqbW5TRDk0RVRsYVNiS1pUdjVtTlM1T3doNUZRWUxNQWJaQjJMenBr?oc=5",
-          "publisher_homepage": "https://news.cnyes.com"
+          "publisher_homepage": "https://news.cnyes.com",
+          "original_url": "https://news.cnyes.com/news/print/6601409",
+          "url_resolved": true
         },
         {
           "title": "翔名 115年8月營收3.04億、年增71.52%",
           "source": "MoneyDJ",
           "published_at": "2026-09-08 18:19:00",
-          "age_hours": 64.9,
+          "age_hours": 65.2,
           "score": 11,
           "discovery_url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxOU3BCS2paWlNMdjkzUFZyaVU2ajI1OWdodGhpaTNsS01wTVJrTzNnQ2ZHOWd3LXBlRTlSb282SjVETS0xVXgtYVBQS0YtTzhaN3J0M3hQZTRMOTVNWmMxSjFram9vd09XN0l3MnZQeWFOa3hwQXFDR2RvUlJ0X3RJLWY4anM2WHBjTS16VTR1TzZuQQ?oc=5",
-          "publisher_homepage": "https://www.moneydj.com"
+          "publisher_homepage": "https://www.moneydj.com",
+          "original_url": "https://www.moneydj.com/kmdj/news/newsviewer.aspx?a=3fb703d2-41a4-456e-ab00-7404b8c744fc",
+          "url_resolved": true
         }
       ]
     },
@@ -645,19 +742,23 @@
           "title": "群翊8月營收2.75億元年增32.28% 1—8月達19.31億元",
           "source": "鉅亨網",
           "published_at": "2026-09-10 12:56:27",
-          "age_hours": 22.3,
+          "age_hours": 22.6,
           "score": 11,
           "discovery_url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE5ZTDlZYXNjRTNzY0p5RXVqeEN5cjVYMGpxUEYzNE1Od3d5aFdmYTJ2WmN5NjA5cDlScHJrUjBsT3hOTmJrYXJfNDByRVBoVG8xcDhn?oc=5",
-          "publisher_homepage": "https://news.cnyes.com"
+          "publisher_homepage": "https://news.cnyes.com",
+          "original_url": "https://news.cnyes.com/news/print/6602295",
+          "url_resolved": true
         },
         {
           "title": "群翊 115年8月營收2.75億、年增32.28%",
           "source": "MoneyDJ",
           "published_at": "2026-09-09 14:59:00",
-          "age_hours": 44.2,
+          "age_hours": 44.5,
           "score": 11,
           "discovery_url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxNejFId0RxYko3dkpRME9Pb1ZtU1R0YjZiYTdZdjVTcnk5enhJbWl6RjM4RkphQjExR1ZWRUNCeTNYcWxrUHVWNXpYaEhROWdrS3JvUVlGbXduZG1LbzRjWFZwTWJjVjJvZjRhc3dZejIxMFhxVWFZaG5vT0lqZnA4dlU1U00wWTVfc0R6Q2V4dmUwUQ?oc=5",
-          "publisher_homepage": "https://www.moneydj.com"
+          "publisher_homepage": "https://www.moneydj.com",
+          "original_url": "https://www.moneydj.com/kmdj/news/newsviewer.aspx?a=edda9765-5981-471a-b628-65832a351b0f",
+          "url_resolved": true
         }
       ]
     },
@@ -670,44 +771,41 @@
           "title": "台股市場動態：竣邦與廣宇營收增長，鴻海擴展AI光互連，面板需求回升",
           "source": "鉅亨網",
           "published_at": "2026-09-09 01:58:28",
-          "age_hours": 57.2,
+          "age_hours": 57.5,
           "score": 16,
           "discovery_url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE1BRkEwQUJEbENYUkNVQUgxdFBZVWZNZXg3ak9XTFNDWDlCc3pIbGo2ejlSQkxfVEM5dVlMWlRzcnlseDBQR2ljUjVEMjYwYW1STUpV?oc=5",
-          "publisher_homepage": "https://news.cnyes.com"
+          "publisher_homepage": "https://news.cnyes.com",
+          "original_url": "https://news.cnyes.com/news/print/6600111",
+          "url_resolved": true
         },
         {
           "title": "CSP 龍頭亞馬遜搶 AI 機櫃 世芯、緯穎、鴻海等協力廠出貨動能強勁",
           "source": "經濟日報",
           "published_at": "2026-09-09 17:00:00",
-          "age_hours": 42.2,
+          "age_hours": 42.5,
           "score": 15,
           "discovery_url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE4wRTUzYlpGcjB5cWVEUi1wOV9wS2txRWQ4dXFZeVhnRGMyNWtTMDJDR1ktTTFwMHFjNG1EQTUwd1hpQjdOZW9nZE9mOEZqTmFNSG5hbXRka1l6UdIBX0FVX3lxTE50SVhOZkpBOWVzaGE2UWpUaGFBQUxGU3pyX1ZIcXdtMUhDWl9selZWOEQwYUJPT0l4RnZreU1JRUoxV3VnSVhmMnU4c2JiMWtSRGJSR01mS3U3a19GUHln?oc=5",
-          "publisher_homepage": "https://money.udn.com"
+          "publisher_homepage": "https://money.udn.com",
+          "original_url": "https://money.udn.com/money/story/5612/9738201",
+          "url_resolved": true
         }
       ]
     },
     {
       "name": "臻鼎-KY",
       "code": "4958",
-      "news_count": 2,
+      "news_count": 1,
       "articles": [
-        {
-          "title": "《電零組》mSAP成1.6T光模塊供應鏈瓶頸 美系外資喊臻鼎-KY值925元",
-          "source": "工商時報",
-          "published_at": "2026-09-08 11:21:00",
-          "age_hours": 71.8,
-          "score": 14,
-          "discovery_url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFA1djVpSWhXNkdXZWwxSFQzWUdXZG82bFZPMk1ONmItNXJSMFhFNXkxMjZtdjFVXzhlbFdiRGFpelNycGUyMUV4LXZpUHhMNDNBRVdiSXFXenpueTJuT2gw?oc=5",
-          "publisher_homepage": "https://www.ctee.com.tw"
-        },
         {
           "title": "營收速報 - 臻鼎-KY(4958)8月營收206.66億元年增率高達41.05％",
           "source": "鉅亨網",
           "published_at": "2026-09-08 17:36:31",
-          "age_hours": 65.6,
+          "age_hours": 65.9,
           "score": 11,
           "discovery_url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE1ZS1A2bFljYWZmQzdwVHM1cmV4WTAxcHlnVXQweUpBN0hVUUhPakNKeHN2c0tmbFpnZ2VOUXlGNEttSk5NQTJFWW5Ra3hVSXc?oc=5",
-          "publisher_homepage": "https://m.cnyes.com"
+          "publisher_homepage": "https://m.cnyes.com",
+          "original_url": "https://m.cnyes.com/news/print/6599576",
+          "url_resolved": true
         }
       ]
     },
@@ -720,10 +818,12 @@
           "title": "京元電子 8 月營收 40.8 億元：年增 31.58% 是扣掉停業部門之後的數字",
           "source": "鉅亨網",
           "published_at": "2026-09-11 10:40:40",
-          "age_hours": 0.5,
+          "age_hours": 0.8,
           "score": 11,
           "discovery_url": "https://news.google.com/rss/articles/CBMiSEFVX3lxTFBOYnN5ZmJkV2o0elEyNHZXTjRCYUgzemlnUTdRUzMtc3Y2LXlYRTdBaVhRRHpRN29rc2F0Wmg1WDU5QktUWTdSWA?oc=5",
-          "publisher_homepage": "https://hao.cnyes.com"
+          "publisher_homepage": "https://hao.cnyes.com",
+          "original_url": "https://hao.cnyes.com/post/267040",
+          "url_resolved": true
         }
       ]
     },
@@ -736,19 +836,23 @@
           "title": "星宇航空營收／8月55.7億元、年增47.7% 創次高",
           "source": "經濟日報",
           "published_at": "2026-09-10 17:15:29",
-          "age_hours": 17.9,
+          "age_hours": 18.3,
           "score": 14,
           "discovery_url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE44VmpBWmNuWFoyMExGTlYtSDJMLU9QRjJ5UVdlUEVpSG4ybXJDUzRseHg4OVQwRHNzQU0xSnQ4NkpubWp3THpBUnNfLTQ1Z3lGYWZpSndBM01SUdIBX0FVX3lxTE5UZnhEZjNGTG11eGt0U2tkbG5pM0xkR043QkFwQ3dQcHFYRVozRHNTUGxRRjB0Q3lqNDJKTmRHd0dvVHRHQVp5bVhiV0QzVU5iZEZyXzRBX3h2VmxpdTZJ?oc=5",
-          "publisher_homepage": "https://money.udn.com"
+          "publisher_homepage": "https://money.udn.com",
+          "original_url": "https://money.udn.com/money/story/5710/9746814",
+          "url_resolved": true
         },
         {
           "title": "星宇航空營收／8月55.7億元、年增47.7% 創次高 | 集中市場 | 證券",
           "source": "經濟日報",
           "published_at": "2026-09-10 17:15:29",
-          "age_hours": 17.9,
+          "age_hours": 18.3,
           "score": 14,
           "discovery_url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE1JV0JtajExaExlX1hYZlpDcUQ1SGh0MnhjYS0xeEo2QU5pTDZmTW03YWo2SGQyaW93MjlWd0JlZ2FPVGNJbFJrZlNmdUIyV2UtelBscnZ5ZlRpdWdEbHBFd2lneW1maC1wTjFVeE5vSThTVmhWNldZ?oc=5",
-          "publisher_homepage": "https://money.udn.com"
+          "publisher_homepage": "https://money.udn.com",
+          "original_url": "https://money.udn.com/money/story/5710/9746814?from=edn_maintab_cate",
+          "url_resolved": true
         }
       ]
     },
@@ -761,19 +865,23 @@
           "title": "中美晶 8 月營收 67.17 億元：營收全數併進來，獲利卻不全是自己的",
           "source": "鉅亨網",
           "published_at": "2026-09-11 07:45:39",
-          "age_hours": 3.4,
+          "age_hours": 3.8,
           "score": 15,
           "discovery_url": "https://news.google.com/rss/articles/CBMiSEFVX3lxTE9jNzI5NnU0cmZfRlVyWmx5eUZ3T2JGODJfQWNUck1vQktISUNCYl82cndrX0NjRDlXbldadGVaY2dUVWJxTDlxbA?oc=5",
-          "publisher_homepage": "https://hao.cnyes.com"
+          "publisher_homepage": "https://hao.cnyes.com",
+          "original_url": "https://hao.cnyes.com/post/266996",
+          "url_resolved": true
         },
         {
           "title": "中美晶8月營收67.17億元年增11.68% 1—8月達542.15億元",
           "source": "鉅亨網",
           "published_at": "2026-09-09 00:47:09",
-          "age_hours": 58.4,
+          "age_hours": 58.7,
           "score": 11,
           "discovery_url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE1ucE5teUdvQW1WMUVNUFN6Z202cVlkSUtPbE8xWl9oX1FRcmZnOEF3VUsxcU5CSXdJRVJpTzFpX2NCRldGTkVPbUZSU0VfYy1aMjRr?oc=5",
-          "publisher_homepage": "https://news.cnyes.com"
+          "publisher_homepage": "https://news.cnyes.com",
+          "original_url": "https://news.cnyes.com/news/print/6601005",
+          "url_resolved": true
         }
       ]
     },
@@ -786,19 +894,23 @@
           "title": "中國半導體全面復甦！矽晶圓三年首見全尺寸漲價，環球晶迎亞洲需求回溫",
           "source": "鉅亨網",
           "published_at": "2026-09-08 13:28:10",
-          "age_hours": 69.7,
+          "age_hours": 70.0,
           "score": 12,
           "discovery_url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE5aOERROWRsWk5XRUgzcm1nc25selhMZGlNT1pGUzdyLTJIbzU4VHRXWk16a1ZPOWl6TG0wb2RIYkwwcWY4YzlYYmdTRTVmaWxOR04w?oc=5",
-          "publisher_homepage": "https://news.cnyes.com"
+          "publisher_homepage": "https://news.cnyes.com",
+          "original_url": "https://news.cnyes.com/news/print/6600210",
+          "url_resolved": true
         },
         {
           "title": "環球晶 8 月營收 47.64 億元：單月年增是正的，累計卻還是負的，我看的是長約的節奏",
           "source": "鉅亨網",
           "published_at": "2026-09-11 11:10:57",
-          "age_hours": 0.0,
+          "age_hours": 0.3,
           "score": 11,
           "discovery_url": "https://news.google.com/rss/articles/CBMiSEFVX3lxTE5FTTBaV2tuSjJBMHNnSDNRcmRTQ2JUaGpTdzEwTUVjNGFtVGs5Qy1jdklCaTRVOHlKTmdmMXFBWG9xQmxBdlA4Yg?oc=5",
-          "publisher_homepage": "https://hao.cnyes.com"
+          "publisher_homepage": "https://hao.cnyes.com",
+          "original_url": "https://hao.cnyes.com/post/267056",
+          "url_resolved": true
         }
       ]
     },
@@ -811,19 +923,23 @@
           "title": "陽明8月營收年月雙增，看好中國十一前出貨需求- 新聞",
           "source": "MoneyDJ",
           "published_at": "2026-09-10 09:03:00",
-          "age_hours": 26.2,
+          "age_hours": 26.5,
           "score": 19,
           "discovery_url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxNeUNPMEpLWG54aWlSTU9PZDZvb1pKNmE4ZDd4eG92a1pEMWtLdExnOENPd2RZUTY0aVhabUc2T2hjeUJYZkZXcG9OcTJCaUF6UTB6a2k1Qi1feVVhd2hwV2JVMHRNWFgzQUpzcTNpTUs0TVFRSzIzelBVbE1RQ3FXbGN2UjU4c3BlWS01emZiUTUyZw?oc=5",
-          "publisher_homepage": "https://www.moneydj.com"
+          "publisher_homepage": "https://www.moneydj.com",
+          "original_url": "https://www.moneydj.com/kmdj/news/newsviewer.aspx?a=3a5cc7c6-3017-4eb0-b1bd-a3c9e94b815b",
+          "url_resolved": true
         },
         {
           "title": "陽明營收／8月216億元 月增3.72%、年增56.1%",
           "source": "經濟日報",
           "published_at": "2026-09-09 17:36:15",
-          "age_hours": 41.6,
+          "age_hours": 41.9,
           "score": 14,
           "discovery_url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE1EWVBjTFV2ZkNCeEJIMUdmUlRLZTVXV05Xdm5ETEFIbGRFM2RKcllxcm1sNkhvYkhYQkp6ZmxDcmtJamt0aDRvUUhReEtld05IQUM5Y2ZEaVdtZ9IBX0FVX3lxTE1NNmJlMXljUS1DQ3h4Ni1kSXhXdTB1OW51OWZkYlBQV1p2dXc2T25mSENkeGtCOWJTN2lrV0Vqc0I4ckFrRDFNLU13Wk1ENndJYjRhTjN1YlRMbnhpM19Z?oc=5",
-          "publisher_homepage": "https://money.udn.com"
+          "publisher_homepage": "https://money.udn.com",
+          "original_url": "https://money.udn.com/money/story/5710/9744445",
+          "url_resolved": true
         }
       ]
     }
