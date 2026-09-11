@@ -4,9 +4,11 @@ import urllib.error
 from datetime import datetime
 from zoneinfo import ZoneInfo
 
+
 TWSE_URL = "https://openapi.twse.com.tw/v1/exchangeReport/STOCK_DAY_ALL"
 TPEX_URL = "https://www.tpex.org.tw/openapi/v1/tpex_mainboard_daily_close_quotes"
 REVENUE_URL = "https://openapi.twse.com.tw/v1/opendata/t187ap05_P"
+
 
 def fetch_json(url):
 
@@ -47,19 +49,16 @@ def fetch_json(url):
                 return json.loads(text)
 
             except json.JSONDecodeError:
-
                 raise RuntimeError(
                     f"API回傳內容不是JSON：{url}"
                 )
 
     except urllib.error.HTTPError as error:
-
         raise RuntimeError(
             f"HTTP錯誤：{error.code}｜{url}"
         )
 
     except urllib.error.URLError as error:
-
         raise RuntimeError(
             f"連線失敗：{error.reason}｜{url}"
         )
@@ -110,7 +109,10 @@ def calculate_change_percent(
         * 100
     )
 
-    return round(percent, 2)
+    return round(
+        percent,
+        2
+    )
 
 
 def load_stock_list():
@@ -142,7 +144,10 @@ def process_twse(
     for item in twse_data:
 
         code = str(
-            item.get("Code", "")
+            item.get(
+                "Code",
+                ""
+            )
         ).strip()
 
         if code not in stock_lookup:
@@ -153,12 +158,12 @@ def process_twse(
         if stock["market"] != "TWSE":
             continue
 
-        closing_price = (
-            item.get("ClosingPrice")
+        closing_price = item.get(
+            "ClosingPrice"
         )
 
-        change = (
-            item.get("Change")
+        change = item.get(
+            "Change"
         )
 
         change_percent = (
@@ -169,13 +174,26 @@ def process_twse(
         )
 
         results.append({
-            "name": stock["name"],
-            "code": code,
-            "market": "TWSE",
-            "type": stock["type"],
-            "closing_price": closing_price,
-            "change": change,
-            "change_percent": change_percent
+            "name":
+                stock["name"],
+
+            "code":
+                code,
+
+            "market":
+                "TWSE",
+
+            "type":
+                stock["type"],
+
+            "closing_price":
+                closing_price,
+
+            "change":
+                change,
+
+            "change_percent":
+                change_percent
         })
 
     return results
@@ -192,11 +210,18 @@ def find_first(
             return item[key]
 
     return None
-def process_revenue(revenue_data,stock_lookup):
-    results={}
+
+
+def process_revenue(
+    revenue_data,
+    stock_lookup
+):
+
+    results = {}
 
     for item in revenue_data:
-        code=find_first(
+
+        code = find_first(
             item,
             [
                 "公司代號",
@@ -208,26 +233,27 @@ def process_revenue(revenue_data,stock_lookup):
         if code is None:
             continue
 
-        code=str(code).strip()
+        code = str(
+            code
+        ).strip()
 
         if code not in stock_lookup:
             continue
 
-        stock=stock_lookup[code]
+        stock = stock_lookup[code]
 
-        if stock["type"]!="stock":
+        if stock["type"] != "stock":
             continue
 
-        year=find_first(
+        revenue_period = find_first(
             item,
             [
                 "資料年月",
-                "營業收入-當月營收",
                 "年月"
             ]
         )
 
-        current_revenue=find_first(
+        current_revenue = find_first(
             item,
             [
                 "營業收入-當月營收",
@@ -235,7 +261,7 @@ def process_revenue(revenue_data,stock_lookup):
             ]
         )
 
-        previous_revenue=find_first(
+        previous_revenue = find_first(
             item,
             [
                 "營業收入-上月營收",
@@ -243,7 +269,7 @@ def process_revenue(revenue_data,stock_lookup):
             ]
         )
 
-        last_year_revenue=find_first(
+        last_year_revenue = find_first(
             item,
             [
                 "營業收入-去年當月營收",
@@ -251,43 +277,63 @@ def process_revenue(revenue_data,stock_lookup):
             ]
         )
 
-        current=to_float(current_revenue)
-        previous=to_float(previous_revenue)
-        last_year=to_float(last_year_revenue)
+        current = to_float(
+            current_revenue
+        )
 
-        mom=None
-        yoy=None
+        previous = to_float(
+            previous_revenue
+        )
+
+        last_year = to_float(
+            last_year_revenue
+        )
+
+        mom = None
+        yoy = None
 
         if (
             current is not None
-            and previous not in [None,0]
+            and previous not in [None, 0]
         ):
-            mom=round(
-                (current-previous)
-                /previous
-                *100,
+            mom = round(
+                (
+                    current - previous
+                )
+                / previous
+                * 100,
                 2
             )
 
         if (
             current is not None
-            and last_year not in [None,0]
+            and last_year not in [None, 0]
         ):
-            yoy=round(
-                (current-last_year)
-                /last_year
-                *100,
+            yoy = round(
+                (
+                    current - last_year
+                )
+                / last_year
+                * 100,
                 2
             )
 
-        results[code]={
-            "revenue_period":year,
-            "monthly_revenue":current,
-            "mom":mom,
-            "yoy":yoy
+        results[code] = {
+            "revenue_period":
+                revenue_period,
+
+            "monthly_revenue":
+                current,
+
+            "mom":
+                mom,
+
+            "yoy":
+                yoy
         }
 
     return results
+
 
 def process_tpex(
     tpex_data,
@@ -311,7 +357,9 @@ def process_tpex(
         if code is None:
             continue
 
-        code = str(code).strip()
+        code = str(
+            code
+        ).strip()
 
         if code not in stock_lookup:
             continue
@@ -348,13 +396,26 @@ def process_tpex(
         )
 
         results.append({
-            "name": stock["name"],
-            "code": code,
-            "market": "TPEx",
-            "type": stock["type"],
-            "closing_price": closing_price,
-            "change": change,
-            "change_percent": change_percent
+            "name":
+                stock["name"],
+
+            "code":
+                code,
+
+            "market":
+                "TPEx",
+
+            "type":
+                stock["type"],
+
+            "closing_price":
+                closing_price,
+
+            "change":
+                change,
+
+            "change_percent":
+                change_percent
         })
 
     return results
@@ -365,14 +426,18 @@ def main():
     stocks = load_stock_list()
 
     stock_lookup = (
-        build_stock_lookup(stocks)
+        build_stock_lookup(
+            stocks
+        )
     )
 
     print(
         f"自選股共{len(stocks)}檔"
     )
 
-    print("取得TWSE資料……")
+    print(
+        "取得TWSE資料……"
+    )
 
     twse_data = fetch_json(
         TWSE_URL
@@ -383,7 +448,9 @@ def main():
         f"{len(twse_data)}筆資料"
     )
 
-    print("取得TPEx資料……")
+    print(
+        "取得TPEx資料……"
+    )
 
     tpex_data = fetch_json(
         TPEX_URL
@@ -394,10 +461,19 @@ def main():
         f"{len(tpex_data)}筆資料"
     )
 
-print("取得月營收資料……")
-revenue_data=fetch_json(REVENUE_URL)
-print(f"營收API共回傳{len(revenue_data)}筆資料")
-    
+    print(
+        "取得月營收資料……"
+    )
+
+    revenue_data = fetch_json(
+        REVENUE_URL
+    )
+
+    print(
+        f"營收API共回傳"
+        f"{len(revenue_data)}筆資料"
+    )
+
     results = []
 
     results.extend(
@@ -414,16 +490,20 @@ print(f"營收API共回傳{len(revenue_data)}筆資料")
         )
     )
 
-revenue_map=process_revenue(
-    revenue_data,
-    stock_lookup
-)
+    revenue_map = process_revenue(
+        revenue_data,
+        stock_lookup
+    )
 
-for item in results:
-    code=item["code"]
+    for item in results:
 
-    if code in revenue_map:
-        item.update(revenue_map[code])
+        code = item["code"]
+
+        if code in revenue_map:
+
+            item.update(
+                revenue_map[code]
+            )
 
     found_codes = {
         item["code"]
@@ -434,22 +514,34 @@ for item in results:
 
     for stock in stocks:
 
-        if stock["code"] not in found_codes:
+        if (
+            stock["code"]
+            not in found_codes
+        ):
 
             missing.append({
-                "name": stock["name"],
-                "code": stock["code"],
-                "market": stock["market"]
+                "name":
+                    stock["name"],
+
+                "code":
+                    stock["code"],
+
+                "market":
+                    stock["market"]
             })
 
     output = {
 
-     "updated_at": (
-    datetime.now(
-        ZoneInfo("Asia/Taipei")
-    )
-    .strftime("%Y-%m-%d %H:%M:%S")
-),
+        "updated_at": (
+            datetime.now(
+                ZoneInfo(
+                    "Asia/Taipei"
+                )
+            )
+            .strftime(
+                "%Y-%m-%d %H:%M:%S"
+            )
+        ),
 
         "total_watchlist":
             len(stocks),
@@ -507,4 +599,3 @@ for item in results:
 
 if __name__ == "__main__":
     main()
-
