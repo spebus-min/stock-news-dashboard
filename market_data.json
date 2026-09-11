@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-10 08:32:52",
+  "updated_at": "2026-09-11 10:14:42",
   "total_watchlist": 37,
   "total_found": 37,
   "stocks": [
@@ -8,34 +8,34 @@
       "code": "0050",
       "market": "TWSE",
       "type": "etf",
-      "closing_price": "109.65",
-      "change": "0.0000",
-      "change_percent": 0.0
+      "closing_price": "109.15",
+      "change": "-0.5000",
+      "change_percent": -0.46
     },
     {
       "name": "富邦台50",
       "code": "006208",
       "market": "TWSE",
       "type": "etf",
-      "closing_price": "250.30",
-      "change": "0.2500",
-      "change_percent": 0.1
+      "closing_price": "249.55",
+      "change": "-0.7500",
+      "change_percent": -0.3
     },
     {
       "name": "台泥",
       "code": "1101",
       "market": "TWSE",
       "type": "stock",
-      "closing_price": "24.75",
-      "change": "0.4500",
-      "change_percent": 1.85
+      "closing_price": "24.80",
+      "change": "0.0500",
+      "change_percent": 0.2
     },
     {
       "name": "卜蜂",
       "code": "1215",
       "market": "TWSE",
       "type": "stock",
-      "closing_price": "110.50",
+      "closing_price": "111.00",
       "change": "0.5000",
       "change_percent": 0.45
     },
@@ -44,79 +44,79 @@
       "code": "2301",
       "market": "TWSE",
       "type": "stock",
-      "closing_price": "292.50",
-      "change": "1.5000",
-      "change_percent": 0.52
+      "closing_price": "291.00",
+      "change": "-1.5000",
+      "change_percent": -0.51
     },
     {
       "name": "台達電",
       "code": "2308",
       "market": "TWSE",
       "type": "stock",
-      "closing_price": "1795.00",
-      "change": "-10.0000",
-      "change_percent": -0.55
+      "closing_price": "1675.00",
+      "change": "-120.0000",
+      "change_percent": -6.69
     },
     {
       "name": "鴻海",
       "code": "2317",
       "market": "TWSE",
       "type": "stock",
-      "closing_price": "252.00",
-      "change": "0.5000",
-      "change_percent": 0.2
+      "closing_price": "251.00",
+      "change": "-1.0000",
+      "change_percent": -0.4
     },
     {
       "name": "台積電",
       "code": "2330",
       "market": "TWSE",
       "type": "stock",
-      "closing_price": "2465.00",
-      "change": "-5.0000",
-      "change_percent": -0.2
+      "closing_price": "2450.00",
+      "change": "-15.0000",
+      "change_percent": -0.61
     },
     {
       "name": "台灣光罩",
       "code": "2338",
       "market": "TWSE",
       "type": "stock",
-      "closing_price": "41.50",
-      "change": "3.7500",
-      "change_percent": 9.93
+      "closing_price": "45.65",
+      "change": "4.1500",
+      "change_percent": 10.0
     },
     {
       "name": "致茂",
       "code": "2360",
       "market": "TWSE",
       "type": "stock",
-      "closing_price": "2335.00",
-      "change": "70.0000",
-      "change_percent": 3.09
+      "closing_price": "2180.00",
+      "change": "-155.0000",
+      "change_percent": -6.64
     },
     {
       "name": "廣達",
       "code": "2382",
       "market": "TWSE",
       "type": "stock",
-      "closing_price": "342.00",
-      "change": "14.0000",
-      "change_percent": 4.27
+      "closing_price": "336.00",
+      "change": "-6.0000",
+      "change_percent": -1.75
     },
     {
       "name": "研華",
       "code": "2395",
       "market": "TWSE",
       "type": "stock",
-      "closing_price": "653.00",
-      "change": "-4.0000",
-      "change_percent": -0.61
+      "closing_price": "659.00",
+      "change": "6.0000",
+      "change_percent": 0.92
     },
     {
       "name": "京元電子",
       "code": "2449",
       "market": "TWSE",
       "type": "stock",
-      "closing_price": "270.00",
+      "closing_price": "271.50",
       "change": "1.5000",
       "change_percent": 0.56
     },
@@ -125,117 +125,117 @@
       "code": "2454",
       "market": "TWSE",
       "type": "stock",
-      "closing_price": "4625.00",
-      "change": "-85.0000",
-      "change_percent": -1.8
+      "closing_price": "4720.00",
+      "change": "95.0000",
+      "change_percent": 2.05
     },
     {
       "name": "義隆",
       "code": "2458",
       "market": "TWSE",
       "type": "stock",
-      "closing_price": "130.00",
-      "change": "-0.5000",
-      "change_percent": -0.38
+      "closing_price": "128.00",
+      "change": "-2.0000",
+      "change_percent": -1.54
     },
     {
       "name": "陽明",
       "code": "2609",
       "market": "TWSE",
       "type": "stock",
-      "closing_price": "58.50",
-      "change": "1.2000",
-      "change_percent": 2.09
+      "closing_price": "58.00",
+      "change": "-0.5000",
+      "change_percent": -0.85
     },
     {
       "name": "星宇航空",
       "code": "2646",
       "market": "TWSE",
       "type": "stock",
-      "closing_price": "20.55",
-      "change": "-0.0500",
-      "change_percent": -0.24
+      "closing_price": "20.30",
+      "change": "-0.2500",
+      "change_percent": -1.22
     },
     {
       "name": "信邦",
       "code": "3023",
       "market": "TWSE",
       "type": "stock",
-      "closing_price": "329.00",
-      "change": "6.0000",
-      "change_percent": 1.86
+      "closing_price": "328.00",
+      "change": "-1.0000",
+      "change_percent": -0.3
     },
     {
       "name": "文曄",
       "code": "3036",
       "market": "TWSE",
       "type": "stock",
-      "closing_price": "191.50",
-      "change": "2.0000",
-      "change_percent": 1.06
+      "closing_price": "192.50",
+      "change": "1.0000",
+      "change_percent": 0.52
     },
     {
       "name": "緯創",
       "code": "3231",
       "market": "TWSE",
       "type": "stock",
-      "closing_price": "189.00",
-      "change": "2.5000",
-      "change_percent": 1.34
+      "closing_price": "185.00",
+      "change": "-4.0000",
+      "change_percent": -2.12
     },
     {
       "name": "群創",
       "code": "3481",
       "market": "TWSE",
       "type": "stock",
-      "closing_price": "50.10",
-      "change": "1.3000",
-      "change_percent": 2.66
+      "closing_price": "49.35",
+      "change": "-0.7500",
+      "change_percent": -1.5
     },
     {
       "name": "和碩",
       "code": "4938",
       "market": "TWSE",
       "type": "stock",
-      "closing_price": "91.10",
-      "change": "-0.6000",
-      "change_percent": -0.65
+      "closing_price": "91.00",
+      "change": "-0.1000",
+      "change_percent": -0.11
     },
     {
       "name": "臻鼎-KY",
       "code": "4958",
       "market": "TWSE",
       "type": "stock",
-      "closing_price": "502.00",
-      "change": "-3.0000",
-      "change_percent": -0.59
+      "closing_price": "494.50",
+      "change": "-7.5000",
+      "change_percent": -1.49
     },
     {
       "name": "祥碩",
       "code": "5269",
       "market": "TWSE",
       "type": "stock",
-      "closing_price": "1395.00",
-      "change": "-5.0000",
-      "change_percent": -0.36
+      "closing_price": "1360.00",
+      "change": "-35.0000",
+      "change_percent": -2.51
     },
     {
       "name": "力積電",
       "code": "6770",
       "market": "TWSE",
       "type": "stock",
-      "closing_price": "72.40",
-      "change": "0.0000",
-      "change_percent": 0.0
+      "closing_price": "73.50",
+      "change": "1.1000",
+      "change_percent": 1.52
     },
     {
       "name": "鑽石投資",
       "code": "6901",
       "market": "TWSE",
       "type": "stock",
-      "closing_price": "15.10",
-      "change": "-0.1500",
-      "change_percent": -0.98
+      "closing_price": "15.00",
+      "change": "-0.1000",
+      "change_percent": -0.66
     },
     {
       "name": "家登",
