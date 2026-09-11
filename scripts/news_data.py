@@ -8,6 +8,9 @@ import xml.etree.ElementTree as ET
 from datetime import datetime, timezone, timedelta
 from email.utils import parsedate_to_datetime
 from zoneinfo import ZoneInfo
+from urllib.parse import urlparse
+
+from googlenewsdecoder import new_decoderv1
 
 
 GOOGLE_NEWS_URL = "https://news.google.com/rss/search"
@@ -384,7 +387,6 @@ def build_search_queries(stock):
     queries = []
 
     stock_name = stock["name"]
-
     stock_code = stock["code"]
 
     # 一般搜尋
@@ -668,13 +670,9 @@ def parse_google_news(
         )
 
         source = ""
-
         source_homepage = ""
 
-        if (
-            source_element
-            is not None
-        ):
+        if source_element is not None:
 
             source = (
                 source_element.text
@@ -707,7 +705,7 @@ def parse_google_news(
             )
         )
 
-        # 必須真的提到公司名稱
+        # 必須提到公司名稱
         if stock["name"] not in title:
             continue
 
@@ -725,26 +723,24 @@ def parse_google_news(
             )
         )
 
-        # 不在可信來源名單中，
-        # 直接排除
+        # 不在可信來源白名單就排除
         if trusted_name is None:
             continue
 
-        # 明顯技術面、籌碼、喊盤內容
+        # 技術面、籌碼、喊盤內容排除
         if contains_any(
             title,
             LOW_VALUE_KEYWORDS
         ):
             continue
 
-        # 整理／導流型文章
+        # 整理文、導流文排除
         if contains_any(
             title,
             SUMMARY_STYLE_KEYWORDS
         ):
             continue
 
-        # 至少要具有一個營運／產業事件關鍵字
         has_high_value = (
             contains_any(
                 title,
@@ -810,7 +806,7 @@ def parse_google_news(
 
 def normalize_title(title):
 
-    normalized = (
+    return (
         title
         .replace(" ", "")
         .replace("　", "")
@@ -828,13 +824,10 @@ def normalize_title(title):
         .lower()
     )
 
-    return normalized
-
 
 def remove_duplicates(articles):
 
     unique = []
-
     seen_titles = set()
 
     for article in articles:
@@ -868,20 +861,18 @@ def select_articles(articles):
     )
 
     recent = []
-
     older = []
 
     for article in articles:
 
-        if (
-            article["age_hours"]
-            <= 72
-        ):
+        if article["age_hours"] <= 72:
+
             recent.append(
                 article
             )
 
         else:
+
             older.append(
                 article
             )
@@ -904,7 +895,7 @@ def select_articles(articles):
 
     selected = []
 
-    # 先從72小時內挑選
+    # 72小時內優先，最多2篇
     for article in recent:
 
         if len(selected) >= 2:
@@ -914,8 +905,8 @@ def select_articles(articles):
             article
         )
 
-    # 如果72小時完全沒有，
-    # 才從7天內找
+    # 72小時內完全沒有，
+    # 才放寬至7天
     if len(selected) == 0:
 
         for article in older:
@@ -930,6 +921,178 @@ def select_articles(articles):
     return selected
 
 
+# =========================================================
+# 判斷是否為真正外部新聞網址
+# =========================================================
+
+def is_external_news_url(url):
+
+    if not url:
+        return False
+
+    try:
+
+        parsed = urlparse(
+            url
+        )
+
+        host = (
+            parsed.netloc
+            .lower()
+        )
+
+        if not host:
+            return False
+
+        if (
+            "news.google.com"
+            in host
+        ):
+            return False
+
+        if host.endswith(
+            "google.com"
+        ):
+            return False
+
+        return True
+
+    except Exception:
+
+        return False
+
+
+# =========================================================
+# Google News網址解析
+# =========================================================
+
+def resolve_original_url(
+    discovery_url
+):
+
+    if not discovery_url:
+
+        return (
+            None,
+            False
+        )
+
+    # 如果本來就不是Google網址，
+    # 直接當成原文網址
+    if is_external_news_url(
+        discovery_url
+    ):
+
+        return (
+            discovery_url,
+            True
+        )
+
+    try:
+
+        result = (
+            new_decoderv1(
+                discovery_url
+            )
+        )
+
+        if (
+            isinstance(
+                result,
+                dict
+            )
+            and result.get(
+                "status"
+            )
+        ):
+
+            decoded_url = (
+                result.get(
+                    "decoded_url"
+                )
+            )
+
+            if is_external_news_url(
+                decoded_url
+            ):
+
+                return (
+                    decoded_url,
+                    True
+                )
+
+    except Exception as error:
+
+        print(
+            "  原文網址解析失敗："
+            f"{error}"
+        )
+
+    return (
+        None,
+        False
+    )
+
+
+def resolve_selected_articles(
+    articles
+):
+
+    resolved_articles = []
+
+    for article in articles:
+
+        discovery_url = (
+            article.get(
+                "discovery_url"
+            )
+        )
+
+        print(
+            "  正在解析原文網址："
+            f"{article['source']}｜"
+            f"{article['title']}"
+        )
+
+        original_url, resolved = (
+            resolve_original_url(
+                discovery_url
+            )
+        )
+
+        article[
+            "original_url"
+        ] = original_url
+
+        article[
+            "url_resolved"
+        ] = resolved
+
+        resolved_articles.append(
+            article
+        )
+
+        if resolved:
+
+            print(
+                "    ✓ 原文網址解析成功"
+            )
+
+        else:
+
+            print(
+                "    ⚠ 原文網址解析失敗，"
+                "保留Google News備援網址"
+            )
+
+        # 避免連續大量解析
+        time.sleep(
+            1
+        )
+
+    return resolved_articles
+
+
 def main():
 
     stocks = load_stock_list()
@@ -940,8 +1103,8 @@ def main():
     )
 
     output_stocks = []
-
     total_articles = 0
+    total_resolved_urls = 0
 
     for index, stock in enumerate(
         stocks,
@@ -988,7 +1151,7 @@ def main():
                 articles
             )
 
-            # 避免短時間大量請求
+            # 避免短時間大量RSS請求
             time.sleep(
                 0.25
             )
@@ -999,8 +1162,23 @@ def main():
             )
         )
 
+        # 只解析最後真正選中的新聞
+        selected = (
+            resolve_selected_articles(
+                selected
+            )
+        )
+
         total_articles += (
             len(selected)
+        )
+
+        total_resolved_urls += sum(
+            1
+            for article in selected
+            if article.get(
+                "url_resolved"
+            )
         )
 
         output_stocks.append({
@@ -1056,6 +1234,9 @@ def main():
         "total_articles":
             total_articles,
 
+        "total_resolved_urls":
+            total_resolved_urls,
+
         "stocks":
             output_stocks
     }
@@ -1080,6 +1261,11 @@ def main():
     print(
         f"共保留"
         f"{total_articles}則新聞。"
+    )
+
+    print(
+        f"成功解析"
+        f"{total_resolved_urls}則原文網址。"
     )
 
 
