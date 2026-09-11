@@ -6,7 +6,7 @@ from zoneinfo import ZoneInfo
 
 TWSE_URL = "https://openapi.twse.com.tw/v1/exchangeReport/STOCK_DAY_ALL"
 TPEX_URL = "https://www.tpex.org.tw/openapi/v1/tpex_mainboard_daily_close_quotes"
-
+REVENUE_URL = "https://openapi.twse.com.tw/v1/opendata/t187ap05_P"
 
 def fetch_json(url):
 
@@ -192,7 +192,102 @@ def find_first(
             return item[key]
 
     return None
+def process_revenue(revenue_data,stock_lookup):
+    results={}
 
+    for item in revenue_data:
+        code=find_first(
+            item,
+            [
+                "公司代號",
+                "公司代號 ",
+                "Code"
+            ]
+        )
+
+        if code is None:
+            continue
+
+        code=str(code).strip()
+
+        if code not in stock_lookup:
+            continue
+
+        stock=stock_lookup[code]
+
+        if stock["type"]!="stock":
+            continue
+
+        year=find_first(
+            item,
+            [
+                "資料年月",
+                "營業收入-當月營收",
+                "年月"
+            ]
+        )
+
+        current_revenue=find_first(
+            item,
+            [
+                "營業收入-當月營收",
+                "當月營收"
+            ]
+        )
+
+        previous_revenue=find_first(
+            item,
+            [
+                "營業收入-上月營收",
+                "上月營收"
+            ]
+        )
+
+        last_year_revenue=find_first(
+            item,
+            [
+                "營業收入-去年當月營收",
+                "去年當月營收"
+            ]
+        )
+
+        current=to_float(current_revenue)
+        previous=to_float(previous_revenue)
+        last_year=to_float(last_year_revenue)
+
+        mom=None
+        yoy=None
+
+        if (
+            current is not None
+            and previous not in [None,0]
+        ):
+            mom=round(
+                (current-previous)
+                /previous
+                *100,
+                2
+            )
+
+        if (
+            current is not None
+            and last_year not in [None,0]
+        ):
+            yoy=round(
+                (current-last_year)
+                /last_year
+                *100,
+                2
+            )
+
+        results[code]={
+            "revenue_period":year,
+            "monthly_revenue":current,
+            "mom":mom,
+            "yoy":yoy
+        }
+
+    return results
 
 def process_tpex(
     tpex_data,
