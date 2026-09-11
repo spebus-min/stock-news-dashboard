@@ -21,6 +21,9 @@ jobs:
         with:
           python-version: "3.12"
 
+      - name: Install dependencies
+        run: pip install googlenewsdecoder
+
       - name: Run news data script
         run: python scripts/news_data.py
 
