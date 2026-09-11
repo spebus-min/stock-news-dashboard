@@ -31,21 +31,22 @@
       margin-bottom: 8px;
     }
 
- .count {
-  color: #888;
-  font-size: 14px;
-  margin-bottom: 6px;
-}
+    .count {
+      color: #888;
+      font-size: 14px;
+      margin-bottom: 6px;
+    }
 
-#updateTime {
-  margin-bottom: 30px;
-}
+    #updateTime {
+      margin-bottom: 30px;
+    }
+
     .stock-card {
       background: white;
       padding: 24px;
       margin-bottom: 20px;
       border-radius: 12px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
     }
 
     .stock-name {
@@ -82,207 +83,333 @@
 
 <body>
 
-<div class="container">
+  <div class="container">
 
-  <h1>📈我的台股情報站</h1>
+    <h1>📈我的台股情報站</h1>
 
-  <div class="subtitle">
-    自選股每日重點新聞與AI摘要
-  </div>
-
-<div id="stockCount" class="count">
-  股票清單載入中……
-</div>
-
-<div id="updateTime" class="count">
-  資料更新時間載入中……
-</div>
-
-  <div id="stockList">
-    <div class="loading">
-      自選股資料載入中……
+    <div class="subtitle">
+      自選股每日重點新聞與AI摘要
     </div>
+
+    <div id="stockCount" class="count">
+      股票清單載入中……
+    </div>
+
+    <div id="updateTime" class="count">
+      資料更新時間載入中……
+    </div>
+
+    <div id="stockList">
+      <div class="loading">
+        自選股資料載入中……
+      </div>
+    </div>
+
   </div>
 
-</div>
+  <script>
 
-<script>
+    async function loadData() {
 
-async function loadData() {
+      const stockList =
+        document.getElementById("stockList");
 
-  const stockList = document.getElementById("stockList");
-  const stockCount = document.getElementById("stockCount");
-  const updateTime = document.getElementById("updateTime");
+      const stockCount =
+        document.getElementById("stockCount");
 
-  try {
+      const updateTime =
+        document.getElementById("updateTime");
 
-    const [stocksResponse, marketResponse] = await Promise.all([
-      fetch("stocks.json"),
-      fetch("market_data.json")
-    ]);
+      try {
 
-    if (!stocksResponse.ok) {
-      throw new Error("無法讀取stocks.json");
-    }
+        const [
+          stocksResponse,
+          marketResponse
+        ] = await Promise.all([
+          fetch("stocks.json"),
+          fetch("market_data.json")
+        ]);
 
-    if (!marketResponse.ok) {
-      throw new Error("無法讀取market_data.json");
-    }
-
-    const stocks = await stocksResponse.json();
-    const marketData = await marketResponse.json();
-
-    const marketMap = {};
-
-    marketData.stocks.forEach(item => {
-      marketMap[item.code] = item;
-    });
-
-    const updatedAt =
-  marketData.updated_at
-  ? marketData.updated_at
-  : "未知";
-
-stockCount.textContent =
-  `目前追蹤${stocks.length}檔標的`;
-
-if (marketData.updated_at) {
-
-  const formattedTime =
-    marketData.updated_at
-      .replaceAll("-", "／")
-      .replace(" ", "　");
-
-  updateTime.textContent =
-    `🕒資料最後更新：${formattedTime}（台灣時間）`;
-
-} else {
-
-  updateTime.textContent =
-    "🕒資料最後更新時間：未知";
-
-}
-
-    stockList.innerHTML = "";
-
-    stocks.forEach(stock => {
-
-      const marketText =
-        stock.market === "TWSE"
-        ? "上市"
-        : "上櫃";
-
-      const typeText =
-        stock.type === "etf"
-        ? "ETF"
-        : "個股";
-
-      const market = marketMap[stock.code];
-
-let priceText = "";
-
-if (market) {
-
-  const price = Number(market.closing_price);
-
-  const formattedPrice =
-    Number.isNaN(price)
-    ? market.closing_price
-    : price.toLocaleString(
-        "zh-TW",
-        {
-          minimumFractionDigits: 2,
-          maximumFractionDigits: 2
+        if (!stocksResponse.ok) {
+          throw new Error(
+            "無法讀取stocks.json"
+          );
         }
-      );
 
-  let changePercentText = "資料不足";
+        if (!marketResponse.ok) {
+          throw new Error(
+            "無法讀取market_data.json"
+          );
+        }
 
-  if (
-    market.change_percent !== null &&
-    market.change_percent !== undefined
-  ) {
+        const stocks =
+          await stocksResponse.json();
 
-    const percent =
-      Number(market.change_percent);
+        const marketData =
+          await marketResponse.json();
 
-    const sign =
-      percent > 0
-      ? "＋"
-      : percent < 0
-      ? "－"
-      : "";
+        const marketMap = {};
 
-    changePercentText =
-      `${sign}${Math.abs(percent).toFixed(2)}％`;
-  }
+        marketData.stocks.forEach(
+          item => {
+            marketMap[item.code] = item;
+          }
+        );
 
-  priceText =
-    `最新收盤價：${formattedPrice}元；漲跌幅：${changePercentText}。`;
+        stockCount.textContent =
+          `目前追蹤${stocks.length}檔標的`;
 
-} else {
+        if (marketData.updated_at) {
 
-        priceText =
-          stock.type === "etf"
-          ? "最新股價資料尚未取得。"
-          : "最新股價與營收資料尚未取得。";
+          const formattedTime =
+            marketData.updated_at
+              .replaceAll("-", "／")
+              .replace(" ", "　");
+
+          updateTime.textContent =
+            `🕒資料最後更新：${formattedTime}（台灣時間）`;
+
+        } else {
+
+          updateTime.textContent =
+            "🕒資料最後更新時間：未知";
+        }
+
+        stockList.innerHTML = "";
+
+        stocks.forEach(stock => {
+
+          const marketText =
+            stock.market === "TWSE"
+              ? "上市"
+              : "上櫃";
+
+          const typeText =
+            stock.type === "etf"
+              ? "ETF"
+              : "個股";
+
+          const market =
+            marketMap[stock.code];
+
+          let priceText = "";
+
+          if (market) {
+
+            const price =
+              Number(
+                market.closing_price
+              );
+
+            const formattedPrice =
+              Number.isNaN(price)
+                ? market.closing_price
+                : price.toLocaleString(
+                    "zh-TW",
+                    {
+                      minimumFractionDigits: 2,
+                      maximumFractionDigits: 2
+                    }
+                  );
+
+            let changePercentText =
+              "資料不足";
+
+            if (
+              market.change_percent !== null &&
+              market.change_percent !== undefined
+            ) {
+
+              const percent =
+                Number(
+                  market.change_percent
+                );
+
+              const sign =
+                percent > 0
+                  ? "＋"
+                  : percent < 0
+                  ? "－"
+                  : "";
+
+              changePercentText =
+                `${sign}${Math.abs(percent).toFixed(2)}％`;
+            }
+
+            let revenueText = "";
+
+            if (
+              market.type === "stock" &&
+              market.revenue_period &&
+              market.monthly_revenue !== null &&
+              market.monthly_revenue !== undefined
+            ) {
+
+              const period =
+                String(
+                  market.revenue_period
+                );
+
+              const rocYear =
+                Number(
+                  period.slice(0, 3)
+                );
+
+              const month =
+                Number(
+                  period.slice(3, 5)
+                );
+
+              const year =
+                rocYear + 1911;
+
+              /*
+                官方月營收資料單位為千元。
+                除以100000後轉換為億元。
+              */
+              const revenueBillion =
+                Number(
+                  market.monthly_revenue
+                ) / 100000;
+
+              let momText =
+                "資料不足";
+
+              if (
+                market.mom !== null &&
+                market.mom !== undefined
+              ) {
+
+                const mom =
+                  Number(
+                    market.mom
+                  );
+
+                const momSign =
+                  mom > 0
+                    ? "＋"
+                    : mom < 0
+                    ? "－"
+                    : "";
+
+                momText =
+                  `${momSign}${Math.abs(mom).toFixed(2)}％`;
+              }
+
+              let yoyText =
+                "資料不足";
+
+              if (
+                market.yoy !== null &&
+                market.yoy !== undefined
+              ) {
+
+                const yoy =
+                  Number(
+                    market.yoy
+                  );
+
+                const yoySign =
+                  yoy > 0
+                    ? "＋"
+                    : yoy < 0
+                    ? "－"
+                    : "";
+
+                yoyText =
+                  `${yoySign}${Math.abs(yoy).toFixed(2)}％`;
+              }
+
+              revenueText =
+                `<br>${year}年${month}月營收：` +
+                `${revenueBillion.toLocaleString(
+                  "zh-TW",
+                  {
+                    minimumFractionDigits: 2,
+                    maximumFractionDigits: 2
+                  }
+                )}億元；` +
+                `月增：${momText}；` +
+                `年增：${yoyText}。`;
+            }
+
+            priceText =
+              `最新收盤價：${formattedPrice}元；` +
+              `漲跌幅：${changePercentText}。` +
+              `${revenueText}`;
+
+          } else {
+
+            priceText =
+              stock.type === "etf"
+                ? "最新股價資料尚未取得。"
+                : "最新股價與營收資料尚未取得。";
+          }
+
+          const card =
+            document.createElement(
+              "div"
+            );
+
+          card.className =
+            "stock-card";
+
+          card.innerHTML = `
+
+            <div class="stock-name">
+              ${stock.name}（${stock.code}）
+            </div>
+
+            <div class="stock-info">
+              ${marketText}｜${typeText}
+            </div>
+
+            <div class="section">
+              📊<strong>最新營收／股價動態：</strong><br>
+              ${priceText}
+            </div>
+
+            <div class="section">
+              🚀<strong>營運與重大發展：</strong><br>
+              AI新聞摘要功能建置中。
+            </div>
+
+            <div class="section">
+              🔗<strong>新聞原文連結：</strong><br>
+              新聞搜尋功能建置中。
+            </div>
+
+          `;
+
+          stockList.appendChild(
+            card
+          );
+
+        });
+
+      } catch(error) {
+
+        console.error(error);
+
+        stockCount.textContent =
+          "資料載入失敗";
+
+        updateTime.textContent =
+          "";
+
+        stockList.innerHTML = `
+
+          <div class="error">
+            無法讀取資料，請確認stocks.json與market_data.json是否存在。
+          </div>
+
+        `;
       }
+    }
 
-      const card = document.createElement("div");
+    loadData();
 
-      card.className = "stock-card";
-
-      card.innerHTML = `
-
-        <div class="stock-name">
-          ${stock.name}（${stock.code}）
-        </div>
-
-        <div class="stock-info">
-          ${marketText}｜${typeText}
-        </div>
-
-        <div class="section">
-          📊<strong>最新營收／股價動態：</strong><br>
-          ${priceText}
-        </div>
-
-        <div class="section">
-          🚀<strong>營運與重大發展：</strong><br>
-          AI新聞摘要功能建置中。
-        </div>
-
-        <div class="section">
-          🔗<strong>新聞原文連結：</strong><br>
-          新聞搜尋功能建置中。
-        </div>
-
-      `;
-
-      stockList.appendChild(card);
-
-    });
-
-  } catch(error) {
-
-    console.error(error);
-
-    stockCount.textContent =
-      "資料載入失敗";
-
-    stockList.innerHTML = `
-
-      <div class="error">
-        無法讀取資料，請確認stocks.json與market_data.json是否存在。
-      </div>
-
-    `;
-  }
-}
-
-loadData();
-
-</script>
+  </script>
 
 </body>
 
