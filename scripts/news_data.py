@@ -10,123 +10,280 @@ from email.utils import parsedate_to_datetime
 from zoneinfo import ZoneInfo
 
 
-GOOGLE_NEWS_URL = (
-    "https://news.google.com/rss/search"
-)
+GOOGLE_NEWS_URL = "https://news.google.com/rss/search"
 
-TAIPEI_TZ = ZoneInfo(
-    "Asia/Taipei"
-)
+TAIPEI_TZ = ZoneInfo("Asia/Taipei")
 
 
-# ==============================
-# 新聞重要性關鍵字
-# ==============================
+# =========================================================
+# 可信新聞來源
+# =========================================================
+
+TRUSTED_SOURCES = {
+    "中央社": {
+        "domains": [
+            "cna.com.tw"
+        ],
+        "score": 10
+    },
+
+    "經濟日報": {
+        "domains": [
+            "money.udn.com"
+        ],
+        "score": 10
+    },
+
+    "工商時報": {
+        "domains": [
+            "ctee.com.tw"
+        ],
+        "score": 10
+    },
+
+    "天下雜誌": {
+        "domains": [
+            "cw.com.tw"
+        ],
+        "score": 8
+    },
+
+    "商業周刊": {
+        "domains": [
+            "businessweekly.com.tw"
+        ],
+        "score": 8
+    },
+
+    "MoneyDJ": {
+        "domains": [
+            "moneydj.com"
+        ],
+        "score": 7
+    },
+
+    "鉅亨網": {
+        "domains": [
+            "cnyes.com"
+        ],
+        "score": 7
+    },
+
+    "科技新報": {
+        "domains": [
+            "technews.tw"
+        ],
+        "score": 7
+    }
+}
+
+
+# =========================================================
+# 完全排除來源
+# =========================================================
+
+BLOCKED_SOURCE_KEYWORDS = [
+    "TOP1markets",
+    "top1markets",
+
+    "豐雲學堂",
+    "sinotrade",
+    "sinotrade.com.tw",
+
+    "CMoney",
+    "籌碼K線",
+
+    "旺得富",
+
+    "玩股網",
+    "WantGoo",
+
+    "股感",
+    "StockFeel"
+]
+
+
+# =========================================================
+# 重大營運事件
+# =========================================================
 
 HIGH_VALUE_KEYWORDS = [
     "營收",
     "財報",
+    "獲利",
+    "EPS",
+
     "法說",
     "法說會",
     "財測",
     "展望",
-    "EPS",
+
     "接單",
     "訂單",
+
     "擴產",
     "產能",
+    "建廠",
+    "新廠",
+
     "量產",
+    "試產",
+
     "新產品",
     "新品",
+    "推出",
+
     "投資",
     "重大投資",
+
     "併購",
     "收購",
     "合併",
+
     "策略合作",
+    "合作",
     "結盟",
+
     "董事會",
     "重大訊息",
+
     "現金股利",
+    "股利",
     "配息",
     "配股",
+
     "增資",
     "減資",
-    "處分資產",
+
     "取得資產",
+    "處分資產",
+
     "停工",
     "復工",
+
     "召回",
-    "出口管制"
+
+    "出口管制",
+
+    "供應鏈",
+    "客戶",
+
+    "出貨",
+    "需求",
+
+    "資本支出"
 ]
 
 
 MEDIUM_VALUE_KEYWORDS = [
     "AI",
     "人工智慧",
+
     "半導體",
     "晶片",
+
     "伺服器",
+
     "ASIC",
+
     "CoWoS",
     "先進封裝",
+
+    "2奈米",
+    "3奈米",
+
     "車用",
     "電動車",
-    "供應鏈",
-    "客戶",
+
     "市場需求",
-    "出貨",
     "訂單能見度",
-    "產業展望"
+
+    "海外布局",
+    "海外設廠"
 ]
 
 
-# ==============================
-# 希望降低排序的新聞
-# ==============================
+# =========================================================
+# 明顯非重大營運新聞
+# =========================================================
 
 LOW_VALUE_KEYWORDS = [
     "技術分析",
+
     "籌碼",
     "籌碼面",
+
     "三大法人",
+
     "外資買超",
     "外資賣超",
+
     "投信買超",
     "投信賣超",
+
     "自營商",
+
     "盤中",
     "盤勢",
+
     "今日股價",
+
     "股價創高",
     "股價創低",
+
     "飆股",
     "熱門股",
     "強勢股",
     "弱勢股",
+
     "目標價",
     "法人喊",
+
     "存股",
     "當沖",
+
     "融資",
-    "融券"
+    "融券",
+
+    "技術面",
+    "均線",
+    "KD",
+    "MACD"
 ]
 
 
-# ==============================
-# 優先新聞來源
-# ==============================
+# =========================================================
+# 整理文、導流文
+# =========================================================
 
-PREFERRED_SOURCES = [
-    "中央社",
-    "經濟日報",
-    "工商時報",
-    "天下雜誌",
-    "商業周刊",
-    "財訊",
-    "MoneyDJ",
-    "鉅亨網",
-    "科技新報"
+SUMMARY_STYLE_KEYWORDS = [
+    "一次看",
+    "一次搞懂",
+    "總整理",
+    "懶人包",
+
+    "怎麼選",
+    "如何選",
+
+    "值得買嗎",
+    "還能買嗎",
+    "現在能買嗎",
+
+    "怎麼買",
+    "如何買",
+
+    "卡位",
+
+    "ETF怎麼選",
+    "ETF如何選",
+
+    "投資攻略",
+    "投資教學",
+
+    "新手必看",
+
+    "完整解析",
+    "完整分析"
 ]
 
 
@@ -169,9 +326,7 @@ def fetch_text(url):
             timeout=30
         ) as response:
 
-            raw_data = (
-                response.read()
-            )
+            raw_data = response.read()
 
             return raw_data.decode(
                 "utf-8",
@@ -206,28 +361,13 @@ def fetch_text(url):
         return None
 
 
-def build_google_news_url(
-    stock
-):
-
-    query = (
-        f'"{stock["name"]}" '
-        f'{stock["code"]} '
-        f'when:7d'
-    )
+def build_google_news_url(query):
 
     params = {
-        "q":
-            query,
-
-        "hl":
-            "zh-TW",
-
-        "gl":
-            "TW",
-
-        "ceid":
-            "TW:zh-Hant"
+        "q": query,
+        "hl": "zh-TW",
+        "gl": "TW",
+        "ceid": "TW:zh-Hant"
     }
 
     return (
@@ -239,9 +379,40 @@ def build_google_news_url(
     )
 
 
-def parse_date(
-    date_text
-):
+def build_search_queries(stock):
+
+    queries = []
+
+    stock_name = stock["name"]
+
+    stock_code = stock["code"]
+
+    # 一般搜尋
+    queries.append(
+        f'"{stock_name}" '
+        f'{stock_code} '
+        f'when:7d'
+    )
+
+    # 對可信媒體逐一搜尋
+    for source_info in TRUSTED_SOURCES.values():
+
+        for domain in source_info["domains"]:
+
+            query = (
+                f'"{stock_name}" '
+                f'site:{domain} '
+                f'when:7d'
+            )
+
+            queries.append(
+                query
+            )
+
+    return queries
+
+
+def parse_date(date_text):
 
     if not date_text:
         return None
@@ -254,10 +425,7 @@ def parse_date(
             )
         )
 
-        if (
-            date_value.tzinfo
-            is None
-        ):
+        if date_value.tzinfo is None:
 
             date_value = (
                 date_value.replace(
@@ -276,68 +444,113 @@ def parse_date(
         return None
 
 
-def contains_any(
-    text,
-    keywords
-):
+def contains_any(text, keywords):
 
-    text_lower = (
-        text.lower()
-    )
+    if not text:
+        return False
+
+    text_lower = text.lower()
 
     for keyword in keywords:
 
-        if (
-            keyword.lower()
-            in text_lower
-        ):
+        if keyword.lower() in text_lower:
             return True
 
     return False
 
 
-def count_keywords(
-    text,
-    keywords
-):
+def count_keywords(text, keywords):
 
-    text_lower = (
-        text.lower()
-    )
+    if not text:
+        return 0
+
+    text_lower = text.lower()
 
     count = 0
 
     for keyword in keywords:
 
-        if (
-            keyword.lower()
-            in text_lower
-        ):
+        if keyword.lower() in text_lower:
             count += 1
 
     return count
 
 
-def source_is_preferred(
-    source
-):
+def clean_title(title, source):
 
-    for preferred in (
-        PREFERRED_SOURCES
-    ):
+    if not title:
+        return ""
 
-        if preferred in source:
+    title = title.strip()
+
+    if source:
+
+        suffix = f" - {source}"
+
+        if title.endswith(suffix):
+
+            title = (
+                title[
+                    :-len(suffix)
+                ]
+                .strip()
+            )
+
+    return title
+
+
+def is_blocked_source(source, homepage):
+
+    combined = (
+        f"{source} {homepage}"
+        .lower()
+    )
+
+    for blocked in BLOCKED_SOURCE_KEYWORDS:
+
+        if blocked.lower() in combined:
             return True
 
     return False
 
 
+def identify_trusted_source(source, homepage):
+
+    combined = (
+        f"{source} {homepage}"
+        .lower()
+    )
+
+    for trusted_name, info in TRUSTED_SOURCES.items():
+
+        if trusted_name.lower() in combined:
+
+            return (
+                trusted_name,
+                info["score"]
+            )
+
+        for domain in info["domains"]:
+
+            if domain.lower() in combined:
+
+                return (
+                    trusted_name,
+                    info["score"]
+                )
+
+    return (
+        None,
+        0
+    )
+
+
 def calculate_news_score(
     title,
-    source
+    source_score
 ):
 
-    score = 0
+    score = source_score
 
     high_count = (
         count_keywords(
@@ -360,56 +573,30 @@ def calculate_news_score(
         )
     )
 
-    score += (
-        high_count * 5
+    summary_count = (
+        count_keywords(
+            title,
+            SUMMARY_STYLE_KEYWORDS
+        )
     )
 
     score += (
-        medium_count * 2
+        high_count * 4
+    )
+
+    score += (
+        medium_count * 1
     )
 
     score -= (
-        low_count * 5
+        low_count * 8
     )
 
-    if source_is_preferred(
-        source
-    ):
-        score += 3
+    score -= (
+        summary_count * 10
+    )
 
     return score
-
-
-def clean_title(
-    title,
-    source
-):
-
-    if not title:
-        return ""
-
-    title = (
-        title.strip()
-    )
-
-    if source:
-
-        suffix = (
-            f" - {source}"
-        )
-
-        if title.endswith(
-            suffix
-        ):
-
-            title = (
-                title[
-                    :-len(suffix)
-                ]
-                .strip()
-            )
-
-    return title
 
 
 def parse_google_news(
@@ -422,10 +609,8 @@ def parse_google_news(
 
     try:
 
-        root = (
-            ET.fromstring(
-                xml_text
-            )
+        root = ET.fromstring(
+            xml_text
         )
 
     except ET.ParseError as error:
@@ -440,10 +625,8 @@ def parse_google_news(
 
     articles = []
 
-    now = (
-        datetime.now(
-            TAIPEI_TZ
-        )
+    now = datetime.now(
+        TAIPEI_TZ
     )
 
     seven_days_ago = (
@@ -511,16 +694,10 @@ def parse_google_news(
             )
         )
 
-        if (
-            published_at
-            is None
-        ):
+        if published_at is None:
             continue
 
-        if (
-            published_at
-            < seven_days_ago
-        ):
+        if published_at < seven_days_ago:
             continue
 
         title = (
@@ -530,26 +707,70 @@ def parse_google_news(
             )
         )
 
-        # 股票名稱必須出現在標題
-        # 降低同代號、同產業誤抓機率
+        # 必須真的提到公司名稱
+        if stock["name"] not in title:
+            continue
+
+        # 黑名單來源直接排除
+        if is_blocked_source(
+            source,
+            source_homepage
+        ):
+            continue
+
+        trusted_name, source_score = (
+            identify_trusted_source(
+                source,
+                source_homepage
+            )
+        )
+
+        # 不在可信來源名單中，
+        # 直接排除
+        if trusted_name is None:
+            continue
+
+        # 明顯技術面、籌碼、喊盤內容
+        if contains_any(
+            title,
+            LOW_VALUE_KEYWORDS
+        ):
+            continue
+
+        # 整理／導流型文章
+        if contains_any(
+            title,
+            SUMMARY_STYLE_KEYWORDS
+        ):
+            continue
+
+        # 至少要具有一個營運／產業事件關鍵字
+        has_high_value = (
+            contains_any(
+                title,
+                HIGH_VALUE_KEYWORDS
+            )
+        )
+
+        has_medium_value = (
+            contains_any(
+                title,
+                MEDIUM_VALUE_KEYWORDS
+            )
+        )
+
         if (
-            stock["name"]
-            not in title
+            not has_high_value
+            and not has_medium_value
         ):
             continue
 
         score = (
             calculate_news_score(
                 title,
-                source
+                source_score
             )
         )
-
-        # 完全沒有營運價值，
-        # 或明顯屬籌碼、技術分析，
-        # 就先排除
-        if score < 2:
-            continue
 
         age_hours = (
             now
@@ -561,7 +782,7 @@ def parse_google_news(
                 title,
 
             "source":
-                source,
+                trusted_name,
 
             "published_at":
                 published_at.strftime(
@@ -587,9 +808,30 @@ def parse_google_news(
     return articles
 
 
-def remove_duplicates(
-    articles
-):
+def normalize_title(title):
+
+    normalized = (
+        title
+        .replace(" ", "")
+        .replace("　", "")
+        .replace("，", "")
+        .replace(",", "")
+        .replace("。", "")
+        .replace("！", "")
+        .replace("!", "")
+        .replace("？", "")
+        .replace("?", "")
+        .replace("／", "")
+        .replace("/", "")
+        .replace("｜", "")
+        .replace("|", "")
+        .lower()
+    )
+
+    return normalized
+
+
+def remove_duplicates(articles):
 
     unique = []
 
@@ -598,15 +840,12 @@ def remove_duplicates(
     for article in articles:
 
         normalized = (
-            article["title"]
-            .replace(" ", "")
-            .replace("　", "")
+            normalize_title(
+                article["title"]
+            )
         )
 
-        if (
-            normalized
-            in seen_titles
-        ):
+        if normalized in seen_titles:
             continue
 
         seen_titles.add(
@@ -620,9 +859,7 @@ def remove_duplicates(
     return unique
 
 
-def select_articles(
-    articles
-):
+def select_articles(articles):
 
     articles = (
         remove_duplicates(
@@ -667,31 +904,23 @@ def select_articles(
 
     selected = []
 
-    # 先取72小時內
+    # 先從72小時內挑選
     for article in recent:
 
-        if (
-            len(selected)
-            >= 2
-        ):
+        if len(selected) >= 2:
             break
 
         selected.append(
             article
         )
 
-    # 不足2篇才擴展到7天
-    if (
-        len(selected)
-        < 2
-    ):
+    # 如果72小時完全沒有，
+    # 才從7天內找
+    if len(selected) == 0:
 
         for article in older:
 
-            if (
-                len(selected)
-                >= 2
-            ):
+            if len(selected) >= 2:
                 break
 
             selected.append(
@@ -703,9 +932,7 @@ def select_articles(
 
 def main():
 
-    stocks = (
-        load_stock_list()
-    )
+    stocks = load_stock_list()
 
     print(
         f"開始搜尋"
@@ -728,28 +955,47 @@ def main():
             f"（{stock['code']}）"
         )
 
-        url = (
-            build_google_news_url(
+        all_articles = []
+
+        search_queries = (
+            build_search_queries(
                 stock
             )
         )
 
-        xml_text = (
-            fetch_text(
-                url
-            )
-        )
+        for query in search_queries:
 
-        articles = (
-            parse_google_news(
-                xml_text,
-                stock
+            url = (
+                build_google_news_url(
+                    query
+                )
             )
-        )
+
+            xml_text = (
+                fetch_text(
+                    url
+                )
+            )
+
+            articles = (
+                parse_google_news(
+                    xml_text,
+                    stock
+                )
+            )
+
+            all_articles.extend(
+                articles
+            )
+
+            # 避免短時間大量請求
+            time.sleep(
+                0.25
+            )
 
         selected = (
             select_articles(
-                articles
+                all_articles
             )
         )
 
@@ -784,13 +1030,8 @@ def main():
         else:
 
             print(
-                "  近期無符合條件新聞"
+                "  近期無重大營運事件變動"
             )
-
-        # 避免短時間大量請求
-        time.sleep(
-            0.5
-        )
 
     output = {
 
@@ -804,7 +1045,10 @@ def main():
         ),
 
         "search_window":
-            "優先72小時，最多7天",
+            "優先72小時；若無結果則最多7天",
+
+        "source_policy":
+            "僅保留可信來源白名單",
 
         "total_watchlist":
             len(stocks),
