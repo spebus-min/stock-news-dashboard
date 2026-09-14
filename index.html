@@ -66,6 +66,25 @@
       line-height: 1.8;
     }
 
+    .news-link {
+      margin-top: 6px;
+    }
+
+    .news-link a {
+      color: #1f4e79;
+      text-decoration: none;
+    }
+
+    .news-link a:hover {
+      text-decoration: underline;
+    }
+
+    .news-source {
+      color: #777;
+      font-size: 13px;
+      margin-right: 4px;
+    }
+
     .loading {
       padding: 30px;
       text-align: center;
@@ -124,10 +143,12 @@
 
         const [
           stocksResponse,
-          marketResponse
+          marketResponse,
+          newsResponse
         ] = await Promise.all([
           fetch("stocks.json"),
-          fetch("market_data.json")
+          fetch("market_data.json"),
+          fetch("news_data.json")
         ]);
 
         if (!stocksResponse.ok) {
@@ -142,17 +163,34 @@
           );
         }
 
+        if (!newsResponse.ok) {
+          throw new Error(
+            "無法讀取news_data.json"
+          );
+        }
+
         const stocks =
           await stocksResponse.json();
 
         const marketData =
           await marketResponse.json();
 
+        const newsData =
+          await newsResponse.json();
+
         const marketMap = {};
 
         marketData.stocks.forEach(
           item => {
             marketMap[item.code] = item;
+          }
+        );
+
+        const newsMap = {};
+
+        newsData.stocks.forEach(
+          item => {
+            newsMap[item.code] = item;
           }
         );
 
@@ -191,6 +229,9 @@
 
           const market =
             marketMap[stock.code];
+
+          const news =
+            newsMap[stock.code];
 
           let priceText = "";
 
@@ -263,10 +304,6 @@
               const year =
                 rocYear + 1911;
 
-              /*
-                官方月營收資料單位為千元。
-                除以100000後轉換為億元。
-              */
               const revenueBillion =
                 Number(
                   market.monthly_revenue
@@ -346,6 +383,106 @@
                 : "最新股價與營收資料尚未取得。";
           }
 
+          let aiSummary =
+            "近期無重大營運事件變動";
+
+          if (news) {
+
+            if (
+              news.ai_summary_status === "success" &&
+              news.ai_summary
+            ) {
+
+              aiSummary =
+                news.ai_summary;
+
+            } else if (
+              news.ai_summary_status === "error"
+            ) {
+
+              aiSummary =
+                "AI摘要暫時無法產生";
+
+            } else if (
+              news.ai_summary_status === "no_news"
+            ) {
+
+              aiSummary =
+                "近期無重大營運事件變動";
+
+            } else if (
+              news.ai_summary
+            ) {
+
+              aiSummary =
+                news.ai_summary;
+            }
+          }
+
+          let newsLinksHtml = "";
+
+          if (
+            news &&
+            Array.isArray(news.articles) &&
+            news.articles.length > 0
+          ) {
+
+            const selectedArticles =
+              news.articles.slice(0, 2);
+
+            selectedArticles.forEach(
+              article => {
+
+                const url =
+                  article.original_url ||
+                  article.discovery_url ||
+                  "";
+
+                const source =
+                  article.source ||
+                  "新聞來源";
+
+                const title =
+                  article.title ||
+                  "查看新聞";
+
+                if (url) {
+
+                  newsLinksHtml += `
+                    <div class="news-link">
+                      <span class="news-source">
+                        ${source}｜
+                      </span>
+                      <a
+                        href="${url}"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        ${title}
+                      </a>
+                    </div>
+                  `;
+
+                } else {
+
+                  newsLinksHtml += `
+                    <div class="news-link">
+                      <span class="news-source">
+                        ${source}｜
+                      </span>
+                      ${title}
+                    </div>
+                  `;
+                }
+              }
+            );
+
+          } else {
+
+            newsLinksHtml =
+              "近期無符合條件之重大新聞";
+          }
+
           const card =
             document.createElement(
               "div"
@@ -371,12 +508,12 @@
 
             <div class="section">
               🚀<strong>營運與重大發展：</strong><br>
-              AI新聞摘要功能建置中。
+              ${aiSummary}
             </div>
 
             <div class="section">
               🔗<strong>新聞原文連結：</strong><br>
-              新聞搜尋功能建置中。
+              ${newsLinksHtml}
             </div>
 
           `;
@@ -400,7 +537,7 @@
         stockList.innerHTML = `
 
           <div class="error">
-            無法讀取資料，請確認stocks.json與market_data.json是否存在。
+            無法讀取資料，請確認stocks.json、market_data.json與news_data.json是否存在。
           </div>
 
         `;
