@@ -136,18 +136,18 @@ def generate_summary(
     )
 
     try:
-response = (
-    client.models.generate_content(
-        model=MODEL_NAME,
-        contents=prompt,
-        config=types.GenerateContentConfig(
-            max_output_tokens=500,
-            thinking_config=types.ThinkingConfig(
-                thinking_level="low"
+        response = (
+            client.models.generate_content(
+                model=MODEL_NAME,
+                contents=prompt,
+                config=types.GenerateContentConfig(
+                    max_output_tokens=500,
+                    thinking_config=types.ThinkingConfig(
+                        thinking_level="low"
+                    )
+                )
             )
         )
-    )
-)
 
         return clean_summary(
             response.text
@@ -233,7 +233,6 @@ def main():
             f"  ✓ {summary}"
         )
 
-        # 避免過快連續呼叫API
         time.sleep(
             1
         )
