@@ -7,7 +7,7 @@ from google import genai
 from google.genai import types
 
 
-MODEL_NAME = "gemini-3.7-flash"
+MODEL_NAME = "gemini-3.1-flash-lite"
 
 NO_NEWS_TEXT = "近期無重大營運事件變動"
 AI_ERROR_TEXT = "AI摘要暫時無法產生"
@@ -181,10 +181,7 @@ def generate_summary(
                     model=MODEL_NAME,
                     contents=prompt,
                     config=types.GenerateContentConfig(
-                        max_output_tokens=500,
-                        thinking_config=types.ThinkingConfig(
-                            thinking_level="low"
-                        )
+                        max_output_tokens=300
                     )
                 )
             )
@@ -209,10 +206,8 @@ def generate_summary(
                 f"{error}"
             )
 
-            if (
-                not is_temporary_error(
-                    error
-                )
+            if not is_temporary_error(
+                error
             ):
                 print(
                     "  此錯誤不是暫時性錯誤，"
@@ -350,7 +345,6 @@ def main():
                 f"  ⚠ {AI_ERROR_TEXT}"
             )
 
-        # 成功或失敗後都稍微錯開下一次API請求
         time.sleep(
             1
         )
