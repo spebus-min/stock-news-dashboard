@@ -1,5 +1,6 @@
 import json
 import os
+import random
 import time
 
 from google import genai
@@ -9,6 +10,9 @@ from google.genai import types
 MODEL_NAME = "gemini-3.7-flash"
 
 NO_NEWS_TEXT = "近期無重大營運事件變動"
+AI_ERROR_TEXT = "AI摘要暫時無法產生"
+
+MAX_RETRIES = 3
 
 
 def load_news_data():
@@ -69,18 +73,19 @@ def build_prompt(stock):
 
 {news_text}
 
-請只根據上面提供的新聞標題、來源與日期，撰寫一段繁體中文摘要。
+請只根據上面提供的新聞標題、來源與日期，
+撰寫一段繁體中文摘要。
 
 規則：
 1.只能使用提供的新聞資訊，不可自行補充新聞中沒有出現的事實、數字、公司展望或推測。
-2.摘要內容以營收、法說、產品、產能、接單、投資、重大決策、供應鏈、需求等營運事件為主。
-3.若有兩篇新聞描述同一事件，請整合成一句，不要重複敘述。
+2.摘要以營收、法說、產品、產能、接單、投資、重大決策、供應鏈、需求等營運事件為主。
+3.若兩篇新聞描述相同或高度相關事件，請合併整理，不要重複敘述。
 4.不要提供投資建議。
 5.不要使用「看好」、「利多」、「利空」、「值得投資」、「建議買進」等判斷性語句。
 6.不要加入新聞來源名稱。
 7.不要加入股票代號。
 8.不要使用條列式。
-9.控制在20～100個中文字左右。
+9.摘要長度控制在20～100個中文字左右。
 10.直接輸出摘要正文，不要加「摘要：」、「營運與重大發展：」等標題。
 11.使用客觀、簡潔的繁體中文。
 """
@@ -90,7 +95,7 @@ def build_prompt(stock):
 
 def clean_summary(text):
     if not text:
-        return NO_NEWS_TEXT
+        return None
 
     text = text.strip()
 
@@ -114,9 +119,32 @@ def clean_summary(text):
     )
 
     if not text:
-        return NO_NEWS_TEXT
+        return None
 
     return text
+
+
+def is_temporary_error(error):
+    error_text = str(
+        error
+    ).lower()
+
+    temporary_keywords = [
+        "503",
+        "unavailable",
+        "high demand",
+        "server disconnected",
+        "connection",
+        "timeout",
+        "timed out",
+        "temporarily",
+        "internal"
+    ]
+
+    return any(
+        keyword in error_text
+        for keyword in temporary_keywords
+    )
 
 
 def generate_summary(
@@ -129,37 +157,99 @@ def generate_summary(
     )
 
     if not articles:
-        return NO_NEWS_TEXT
+        return (
+            NO_NEWS_TEXT,
+            "no_news"
+        )
 
     prompt = build_prompt(
         stock
     )
 
-    try:
-        response = (
-            client.models.generate_content(
-                model=MODEL_NAME,
-                contents=prompt,
-                config=types.GenerateContentConfig(
-                    max_output_tokens=500,
-                    thinking_config=types.ThinkingConfig(
-                        thinking_level="low"
+    for attempt in range(
+        1,
+        MAX_RETRIES + 1
+    ):
+        try:
+            print(
+                f"  Gemini摘要嘗試"
+                f"{attempt}/{MAX_RETRIES}"
+            )
+
+            response = (
+                client.models.generate_content(
+                    model=MODEL_NAME,
+                    contents=prompt,
+                    config=types.GenerateContentConfig(
+                        max_output_tokens=500,
+                        thinking_config=types.ThinkingConfig(
+                            thinking_level="low"
+                        )
                     )
                 )
             )
-        )
 
-        return clean_summary(
-            response.text
-        )
+            summary = clean_summary(
+                response.text
+            )
 
-    except Exception as error:
-        print(
-            f"  ⚠ Gemini摘要失敗："
-            f"{error}"
-        )
+            if summary:
+                return (
+                    summary,
+                    "success"
+                )
 
-        return NO_NEWS_TEXT
+            print(
+                "  ⚠ Gemini沒有回傳有效摘要"
+            )
+
+        except Exception as error:
+            print(
+                f"  ⚠ Gemini摘要失敗："
+                f"{error}"
+            )
+
+            if (
+                not is_temporary_error(
+                    error
+                )
+            ):
+                print(
+                    "  此錯誤不是暫時性錯誤，"
+                    "停止重試。"
+                )
+
+                return (
+                    AI_ERROR_TEXT,
+                    "error"
+                )
+
+        if attempt < MAX_RETRIES:
+            wait_seconds = (
+                3 * attempt
+                + random.uniform(
+                    0,
+                    1
+                )
+            )
+
+            print(
+                f"  等待約"
+                f"{wait_seconds:.1f}秒後重試..."
+            )
+
+            time.sleep(
+                wait_seconds
+            )
+
+    print(
+        "  ⚠ 已達最大重試次數"
+    )
+
+    return (
+        AI_ERROR_TEXT,
+        "error"
+    )
 
 
 def main():
@@ -189,6 +279,8 @@ def main():
     )
 
     success_count = 0
+    no_news_count = 0
+    error_count = 0
 
     for index, stock in enumerate(
         stocks,
@@ -200,39 +292,65 @@ def main():
             f"（{stock['code']}）"
         )
 
-        if (
-            stock.get(
-                "news_count",
-                0
-            )
-            == 0
-        ):
+        articles = stock.get(
+            "articles",
+            []
+        )
+
+        if not articles:
             stock[
                 "ai_summary"
             ] = NO_NEWS_TEXT
 
+            stock[
+                "ai_summary_status"
+            ] = "no_news"
+
+            no_news_count += 1
+
             print(
-                f"  {NO_NEWS_TEXT}"
+                f"  ✓ {NO_NEWS_TEXT}"
             )
 
             continue
 
-        summary = generate_summary(
-            client,
-            stock
+        summary, status = (
+            generate_summary(
+                client,
+                stock
+            )
         )
 
         stock[
             "ai_summary"
         ] = summary
 
-        if summary != NO_NEWS_TEXT:
+        stock[
+            "ai_summary_status"
+        ] = status
+
+        if status == "success":
             success_count += 1
 
-        print(
-            f"  ✓ {summary}"
-        )
+            print(
+                f"  ✓ {summary}"
+            )
 
+        elif status == "no_news":
+            no_news_count += 1
+
+            print(
+                f"  ✓ {NO_NEWS_TEXT}"
+            )
+
+        else:
+            error_count += 1
+
+            print(
+                f"  ⚠ {AI_ERROR_TEXT}"
+            )
+
+        # 成功或失敗後都稍微錯開下一次API請求
         time.sleep(
             1
         )
@@ -245,6 +363,14 @@ def main():
         "ai_summary_success_count"
     ] = success_count
 
+    data[
+        "ai_summary_no_news_count"
+    ] = no_news_count
+
+    data[
+        "ai_summary_error_count"
+    ] = error_count
+
     save_news_data(
         data
     )
@@ -254,8 +380,18 @@ def main():
     )
 
     print(
-        f"成功產生"
-        f"{success_count}檔摘要。"
+        f"成功摘要："
+        f"{success_count}檔"
+    )
+
+    print(
+        f"近期無重大新聞："
+        f"{no_news_count}檔"
+    )
+
+    print(
+        f"AI摘要失敗："
+        f"{error_count}檔"
     )
 
 
