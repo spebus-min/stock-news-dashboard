@@ -136,16 +136,18 @@ def generate_summary(
     )
 
     try:
-        response = (
-            client.models.generate_content(
-                model=MODEL_NAME,
-                contents=prompt,
-                config=types.GenerateContentConfig(
-                    temperature=0.2,
-                    max_output_tokens=180
-                )
+response = (
+    client.models.generate_content(
+        model=MODEL_NAME,
+        contents=prompt,
+        config=types.GenerateContentConfig(
+            max_output_tokens=500,
+            thinking_config=types.ThinkingConfig(
+                thinking_level="low"
             )
         )
+    )
+)
 
         return clean_summary(
             response.text
