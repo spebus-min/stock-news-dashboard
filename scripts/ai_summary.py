@@ -14,6 +14,13 @@ AI_ERROR_TEXT = "AI摘要暫時無法產生"
 
 MAX_RETRIES = 3
 
+# Gemini免費方案目前每分鐘請求上限為15次。
+# 每次請求間隔5秒，約為每分鐘12次，保留安全空間。
+REQUEST_INTERVAL_SECONDS = 5
+
+# 遇到429額度限制時，至少等待25秒再重試。
+RATE_LIMIT_WAIT_SECONDS = 25
+
 
 def load_news_data():
     with open(
@@ -124,10 +131,17 @@ def clean_summary(text):
     return text
 
 
-def is_temporary_error(error):
+def get_error_type(error):
     error_text = str(
         error
     ).lower()
+
+    if (
+        "429" in error_text
+        or "resource_exhausted" in error_text
+        or "quota" in error_text
+    ):
+        return "rate_limit"
 
     temporary_keywords = [
         "503",
@@ -141,10 +155,13 @@ def is_temporary_error(error):
         "internal"
     ]
 
-    return any(
+    if any(
         keyword in error_text
         for keyword in temporary_keywords
-    )
+    ):
+        return "temporary"
+
+    return "permanent"
 
 
 def generate_summary(
@@ -201,14 +218,63 @@ def generate_summary(
             )
 
         except Exception as error:
+            error_type = get_error_type(
+                error
+            )
+
             print(
                 f"  ⚠ Gemini摘要失敗："
                 f"{error}"
             )
 
-            if not is_temporary_error(
-                error
-            ):
+            if error_type == "rate_limit":
+                if attempt < MAX_RETRIES:
+                    wait_seconds = (
+                        RATE_LIMIT_WAIT_SECONDS
+                        + random.uniform(
+                            0,
+                            3
+                        )
+                    )
+
+                    print(
+                        "  ⚠ 遇到Gemini免費額度"
+                        "每分鐘請求限制。"
+                    )
+
+                    print(
+                        f"  等待約"
+                        f"{wait_seconds:.1f}秒後重試..."
+                    )
+
+                    time.sleep(
+                        wait_seconds
+                    )
+
+                    continue
+
+            elif error_type == "temporary":
+                if attempt < MAX_RETRIES:
+                    wait_seconds = (
+                        5 * attempt
+                        + random.uniform(
+                            0,
+                            2
+                        )
+                    )
+
+                    print(
+                        f"  暫時性錯誤，等待約"
+                        f"{wait_seconds:.1f}秒後重試..."
+                    )
+
+                    time.sleep(
+                        wait_seconds
+                    )
+
+                    continue
+
+            else:
                 print(
                     "  此錯誤不是暫時性錯誤，"
                     "停止重試。"
@@ -218,24 +284,6 @@ def generate_summary(
                     AI_ERROR_TEXT,
                     "error"
                 )
-
-        if attempt < MAX_RETRIES:
-            wait_seconds = (
-                3 * attempt
-                + random.uniform(
-                    0,
-                    1
-                )
-            )
-
-            print(
-                f"  等待約"
-                f"{wait_seconds:.1f}秒後重試..."
-            )
-
-            time.sleep(
-                wait_seconds
-            )
 
     print(
         "  ⚠ 已達最大重試次數"
@@ -269,13 +317,14 @@ def main():
     )
 
     print(
-        f"開始產生"
+        f"開始處理"
         f"{len(stocks)}檔標的AI摘要"
     )
 
     success_count = 0
     no_news_count = 0
     error_count = 0
+    skipped_count = 0
 
     for index, stock in enumerate(
         stocks,
@@ -305,6 +354,26 @@ def main():
 
             print(
                 f"  ✓ {NO_NEWS_TEXT}"
+            )
+
+            continue
+
+        # 如果這份news_data.json裡已經有成功摘要，
+        # 重新執行AI Only時直接保留，不重複消耗API。
+        if (
+            stock.get(
+                "ai_summary_status"
+            ) == "success"
+            and stock.get(
+                "ai_summary"
+            )
+        ):
+            success_count += 1
+            skipped_count += 1
+
+            print(
+                "  ✓ 已有成功摘要，"
+                "本次保留原摘要。"
             )
 
             continue
@@ -345,8 +414,16 @@ def main():
                 f"  ⚠ {AI_ERROR_TEXT}"
             )
 
+        # 每次真正呼叫Gemini後等待5秒。
+        # 避免超過免費方案每分鐘15次請求限制。
+        print(
+            f"  等待"
+            f"{REQUEST_INTERVAL_SECONDS}秒，"
+            "避免觸發API速率限制..."
+        )
+
         time.sleep(
-            1
+            REQUEST_INTERVAL_SECONDS
         )
 
     data[
@@ -364,6 +441,10 @@ def main():
     data[
         "ai_summary_error_count"
     ] = error_count
+
+    data[
+        "ai_summary_skipped_count"
+    ] = skipped_count
 
     save_news_data(
         data
@@ -386,6 +467,11 @@ def main():
     print(
         f"AI摘要失敗："
         f"{error_count}檔"
+    )
+
+    print(
+        f"其中沿用既有成功摘要："
+        f"{skipped_count}檔"
     )
 
 
